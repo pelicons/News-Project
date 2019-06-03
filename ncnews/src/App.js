@@ -1,20 +1,30 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { Link, Router } from "@reach/router";
+import Header from './components/Header';
+import ArticlesList from './components/ArticlesList';
+import LoginPage from './components/LoginPage';
+
+
 
 class App extends Component {
+  state = {
+    currentUserLogin: null
+  };
+
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div>
+        <Header />
+        <ArticlesList />
+        <LoginPage changeLogin={this.changeLogin} />
       </div>
     );
+  }
+  changeLogin = (input) => {
+    this.setState({ currentUserLogin: '' });
+
+    //get to users to check
   }
 }
 
