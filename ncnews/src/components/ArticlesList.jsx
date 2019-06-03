@@ -13,7 +13,7 @@ class ArticlesList extends Component {
 
         const url = "https://mynewsapp-matthew.herokuapp.com/api/articles";
         axios.get(url).then(({ data: { articles } }) => {
-            console.log(articles);
+
             this.setState({ articlesImported: articles });
         });
 
