@@ -20,7 +20,15 @@ export const getTopics = (input) => {
 
 export const getArticle = (input) => {
 
-   return axios.get(`${url}`+"/articles/"+`${input}`).then((res) => {
+    return axios.get(`${url}` + "/articles/" + `${input}`).then((res) => {
+        return res
+    });
+}
+
+export const getComments = (input) => {
+console.log("hello")
+    return axios.get(`${url}` + "/articles/" + `${input}` + "comments").then((res) => {
+       console.log(res);
         return res
     });
 }
