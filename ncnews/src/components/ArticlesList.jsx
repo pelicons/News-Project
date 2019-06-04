@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Header from './Header';
-import Topics from './topicsList';
+import { Link, Router } from "@reach/router";
+import SingleArticle from './SingleArticle';
 
 class ArticlesList extends Component {
     state = {
@@ -20,22 +20,37 @@ class ArticlesList extends Component {
 
     }
 
-
-
     render() {
         return (
             <div>
-                <Header />
-                <Topics topicsList={this.state.articlesImported} path="/topics" />
-                <ul>
-                    {this.state.articlesImported.map((article) => {
-                        return <li key={article.article_id}>{article.title}</li>
+                <Router>
+                    <SingleArticle path="/:id" />
+                </Router>
 
-                    })}
-                </ul>
+
+                {this.state.articlesImported.map((article) => {
+
+                    return (
+
+                        <div>
+                            <ul key={article.article_id}>
+                                <Link to={`/${article.article_id}`}>
+                                    <li>{article.title}</li></Link>
+
+                            </ul>
+                        </div>
+                    )
+                })
+                }
+
             </div>
         );
     }
+
+
+
+
+
 }
 
 export default ArticlesList;
