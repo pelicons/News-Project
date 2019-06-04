@@ -4,10 +4,12 @@ import { Link } from "@reach/router";
 const Header = () => {
     return (
         <div>
-            <h1>NC NEWS</h1>
+            <Link to="/"><b>NC NEWS</b></Link>
+            <br>
+            </br>
+            <br>
+            </br>
             <Link to="/topics">Topics</Link>
-            
-
         </div>
     );
 };

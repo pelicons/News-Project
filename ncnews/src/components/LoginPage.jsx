@@ -9,11 +9,10 @@ class LoginPage extends Component {
     render() {
         return (
             <div>
-                <form onSubmit={(event) => event.preventDefault()}>
+                <form onSubmit={this.submitInput}>
                     <input type='text' onChange={this.updateUserInput} />
-                    <button onClick={(event) => {
-                        this.props.changeLogin(this.state.userInput)
-                    }}>Login Info</button>
+                    <button 
+                    >Login Info</button>
 
                 </form>
             </div >
@@ -21,6 +20,10 @@ class LoginPage extends Component {
     }
     updateUserInput = (event) => {
         this.setState({ userInput: event.target.value })
+    }
+    submitInput = (event) => {
+        event.preventDefault();
+        this.props.changeLogin(this.state.userInput)
     }
 }
 
