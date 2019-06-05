@@ -2,10 +2,14 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Link, Router } from "@reach/router";
 import SingleArticle from './SingleArticle';
+import SortComponent from '../components/SortComponent';
+import { getSortedArticles } from '../api';
 
 class ArticlesList extends Component {
     state = {
-        articlesImported: []
+        articlesImported: [],
+
+        //sort_by value is input for the get based on drop down menu?
     };
 
 
@@ -26,6 +30,7 @@ class ArticlesList extends Component {
                 <Router>
                     <SingleArticle path="/:id" />
                 </Router>
+                <SortComponent SortedArticles={this.SortedArticles} />
 
 
                 {this.state.articlesImported.map((article) => {
@@ -47,10 +52,15 @@ class ArticlesList extends Component {
         );
     }
 
+    SortedArticles = (input) => {
+        getSortedArticles(input).then((res) => {
+            console.log(res);
+            console.log(res);
+            console.log(res);
+            this.setState({ articlesImported: res })
 
-
-
-
+        })
+    }
 }
 
 export default ArticlesList;
