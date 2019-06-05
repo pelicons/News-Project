@@ -26,9 +26,9 @@ export const getArticle = (input) => {
 }
 
 export const getComments = (input) => {
-console.log("hello")
-    return axios.get(`${url}` + "/articles/" + `${input}` + "comments").then((res) => {
-       console.log(res);
+    // input  = this.props.id in commentsBodies
+    return axios.get(`${url}` + "/articles/" + `${input.id}` + "/comments").then((res) => {
+        console.log(res, "api");
         return res
     });
 }

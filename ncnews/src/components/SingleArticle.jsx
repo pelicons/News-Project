@@ -1,18 +1,20 @@
 import React, { Component } from 'react';
 import { getArticle, getComments } from '../api';
+import CommentsBodies from '../components/CommentsBodies'
 
 
 
 
 class SingleArticle extends Component {
     state = {
-        individualArticle: [],
-        commentsBodies: []
+        individualArticle: []
+
     }
     render() {
-        console.log(this.state.commentsBodies, "++++");
         return (
-
+            // <div>
+            //     <CommentsOnArticle updateCommentsBody={this.updateCommentsBody} />
+            // </div>
             <div>
                 {this.state.individualArticle.title}
                 <br></br>
@@ -22,24 +24,22 @@ class SingleArticle extends Component {
                 <br></br>
                 {this.state.individualArticle.comment_count}
                 <br></br>
-                {this.state.commentsBodies}
-                <br></br>
+                <CommentsBodies id={this.props.id} />
+
+
             </div>
         );
     }
+    componentDidMount(prevProps, prevState) {
+        getArticle(this.props.id).then((res) => {
+            this.setState({ individualArticle: res.data.article })
+        })
+
+    }
     componentDidUpdate(prevProps, prevState) {
-        //promise all
         if (this.props.id !== prevProps.id) {
             getArticle(this.props.id).then((res) => {
-                console.log(res);
                 this.setState({ individualArticle: res.data.article })
-            }).then(() => {
-                getComments(this.props.id).then((result) => {
-
-                    // never being invoked
-                    this.setState({ commentsBodies: result })
-
-                })
 
             })
         }
