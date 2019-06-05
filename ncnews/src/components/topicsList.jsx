@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { getTopics } from '../api';
 import axios from 'axios';
+import { Link, Router } from "@reach/router";
+import ArticlesByTopic from './ArticlesByTopic';
 
 
 class TopicsList extends Component {
@@ -9,15 +11,19 @@ class TopicsList extends Component {
     }
 
 
-
-
     render() {
-        console.log(this.state.importedTopics);
+
         return (
             <div>
+                <Router>
+                    <ArticlesByTopic topicsID={this.props} path="/:topic" />
+                </Router>
                 <ul>
                     {this.state.importedTopics.map((topic) => {
-                        return <li key={topic.slug}>{topic.slug}</li>
+                        return <Link to={`/topics/${topic.slug}`}>
+                            <li key={topic.slug}>
+                                {topic.slug}</li>
+                        </Link>
                     })}
                 </ul>
 
@@ -29,8 +35,7 @@ class TopicsList extends Component {
     //     console.log(prevState);
     //     if (prevState.importedTopics !== this.state.importedTopics) {
     componentDidMount() {
-        getTopics().then((res) => {
-            console.log(res.data.topics);
+        getTopics(this.props).then((res) => {
             this.setState({ importedTopics: res.data.topics })
         })
     }

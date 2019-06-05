@@ -12,17 +12,17 @@ class CommentsBodies extends Component {
         return (
             <div>
                 {this.state.commentsBody.map((comment) => {
-                   return ( <div>
-                    <ul>{console.log(comment)}
-                        <li>{comment.article_id}</li>
-                        <li>{comment.author}</li>
-                        <li>{comment.body}</li>
-                        <li>{comment.comment_id}</li>
-                        <li>{comment.created_at}</li>
-                        <li>{comment.votes}</li>
-                    </ul>
+                    return (<div>
+                        <ul>
+                            <li>{comment.article_id}</li>
+                            <li>{comment.author}</li>
+                            <li>{comment.body}</li>
+                            <li>{comment.comment_id}</li>
+                            <li>{comment.created_at}</li>
+                            <li>{comment.votes}</li>
+                        </ul>
                     </div>
-                   )
+                    )
                 })}
             </div>
         );

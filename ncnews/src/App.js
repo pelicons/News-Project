@@ -18,10 +18,11 @@ class App extends Component {
 
     return (
       <div>
+         
         <Header />
         <Router>
           <ArticlesList path="/*" />
-          <TopicsList path="/topics" />
+          <TopicsList path="/topics/*" />
         </Router>
         <LoginPage changeLogin={this.changeLogin} />
 
