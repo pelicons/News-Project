@@ -14,8 +14,9 @@ class PostCommentComponent extends Component {
         return (
 
             < div >
-                {this.props.currentuserLogin &&
-                    < form onSubmit={this.submitComment} >
+
+                {this.props.currentUserLogin !== null &&
+                    <form onSubmit={this.submitComment} >
                         <label>
                             Comment:
               <input

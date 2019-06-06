@@ -30,6 +30,7 @@ class SingleArticle extends Component {
                 <br></br>
                 <div>
                     <PostCommentComponent id={this.props.id} currentUserLogin={this.props.currentUserLogin} />
+
                 </div>
 
             </div>
