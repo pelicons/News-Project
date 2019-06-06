@@ -32,9 +32,7 @@ class SingleArticle extends Component {
                 <CommentsBodies id={this.props.id} currentUserLogin={this.props.currentUserLogin} />
                 <br></br>
                 <div>
-                    <PostCommentComponent id={this.props.id}
-                        currentUserLogin={this.props.currentUserLogin}
-                        AddCommentState={this.AddCommentState} />
+                
 
                 </div>
 
@@ -62,21 +60,7 @@ class SingleArticle extends Component {
 
         }))
     }
-    AddCommentState = (comment) => {
-      console.log(this.state.individualArticle)
-        const newCommentsArray = [...this.state.individualArticle, comment];
 
-        console.log(newCommentsArray);
-        console.log(newCommentsArray);
-        console.log(newCommentsArray);
-        console.log(newCommentsArray);
-        console.log(newCommentsArray);
-
-        this.setState({
-            individualArticle: newCommentsArray
-
-        })
-    }
 }
 
 export default SingleArticle;

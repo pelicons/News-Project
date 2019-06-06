@@ -15,8 +15,8 @@ class CommentsBodies extends Component {
         return (
             <div>
                 <PostCommentComponent id={this.props.id}
-                        currentUserLogin={this.props.currentUserLogin}
-                        AddCommentState={this.AddCommentState} />
+                    currentUserLogin={this.props.currentUserLogin}
+                    AddCommentState={this.AddCommentState} />
                 {this.state.commentsBody.map((comment) => {
                     return (<div>
                         <DeleteCommentCard comment={comment} currentUserLogin={this.props.currentUserLogin} commentsFilter={this.commentsFilter} />
@@ -45,8 +45,17 @@ class CommentsBodies extends Component {
 
         console.log(commentsID);
         const filteredComments = this.state.commentsBody.filter(comment => comment.comment_id !== commentsID);
-        console.log({filteredComments});
+        console.log({ filteredComments });
         this.setState({ commentsBody: filteredComments })
+    }
+    AddCommentState = (comment) => {
+        console.log(this.state.commentsBody)
+        const newCommentsArray = [...this.state.commentsBody, comment];
+
+        this.setState({
+            commentsBody: newCommentsArray
+
+        })
     }
 }
 
