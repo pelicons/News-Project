@@ -2,13 +2,15 @@ import React, { Component } from 'react';
 import { getArticle } from '../api';
 import CommentsBodies from '../components/CommentsBodies'
 import PostCommentComponent from './PostCommentComponent.jsx'
+import { patchVotes } from '../api'
 
 
 
 
 class SingleArticle extends Component {
     state = {
-        individualArticle: []
+        individualArticle: [],
+        votes: 0
 
     }
     render() {
@@ -17,6 +19,7 @@ class SingleArticle extends Component {
             <div>
                 {this.state.individualArticle.title}
                 <br></br>
+                {/* <button disabled={voteChange === 1} onClick={() => this.handleVote(1)}></button> */}
                 {this.state.individualArticle.body}
                 <br></br>
                 {this.state.individualArticle.votes}
@@ -28,7 +31,6 @@ class SingleArticle extends Component {
                 <div>
                     <PostCommentComponent id={this.props.id} loginStatus={this.props.loginStatus} />
                 </div>
-
 
             </div>
         );
@@ -47,7 +49,17 @@ class SingleArticle extends Component {
             })
         }
     }
+    HandleVote = (direction) => {
+        console.log(this.props.id);
+        patchVotes(direction, this.props.id).then((res => {
+            console.log(res);
 
+        }))
+
+        // }
+        // return { voteChange: prevState.voteChange + direction }
+
+    }
 }
 
 export default SingleArticle;

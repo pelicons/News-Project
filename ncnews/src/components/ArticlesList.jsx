@@ -3,31 +3,47 @@ import axios from 'axios';
 import { Link, Router } from "@reach/router";
 import SingleArticle from './SingleArticle';
 import SortComponent from '../components/SortComponent';
-import { getSortedArticles } from '../api';
+import { getSortedArticles, getTotalArticleCount } from '../api';
 
 class ArticlesList extends Component {
     state = {
         articlesImported: [],
-        total_count: 0,
-        p: 1,
-
-
-        //sort_by value is input for the get based on drop down menu?
+        totalcount: 0,  //currently functional gets set on initial articles list render
+        p: 1
     };
 
+    // const maxPages = getTotalArticleCount();
 
+    // changePage = pageNum => {
+
+    // }
+
+    // changePage = direction => {
+
+    // }
+
+    // componentDidUpdate(prevProps, prevState) {
+
+    // }
 
     componentDidMount() {
 
         const url = `https://mynewsapp-matthew.herokuapp.com/api/articles`;
-        axios.get(url).then(({ data: { articles } }) => {
+        axios.get(url).then((articles) => {   //then(({ data: { articles } }) => {
 
-            this.setState({ articlesImported: articles });
+            console.log(articles.data.totalcount);
+
+            this.setState({
+                articlesImported: articles.data.articles,
+                totalcount: articles.data.totalcount
+            });
         });
 
     }
 
     render() {
+
+
         return (
             <div>
                 <Router>

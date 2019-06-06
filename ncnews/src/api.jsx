@@ -51,13 +51,33 @@ export const getSortedArticles = (sortedQuery) => {
 }
 
 export const postComment = (currentAuthor, currentBody, id) => {
-    
+
 
     return axios.post(`${url}/articles/${id}/comments`, { author: currentAuthor, body: currentBody })
         .then((res) => {
             console.log(res);
             return res
         })
+}
+
+export const getTotalArticleCount = () => {
+
+    return axios.get('$url/articles').then((res) => {
+        console.log(res);
+        return res
+    })
+}
+
+export const patchVotes = (direction, id) => {
+    // .patch('/api/comments/3')
+    //             .send({
+    //                 inc_votes: 500
+    //             })
+
+    return axios.patch(`${url}/comments/${id}`).then((res) => {
+        console.log(res)
+        return res
+    })
 }
 // articles?sort_by=comment_count
 //https://mynewsapp-matthew.herokuapp.com/api/articles/1/comments

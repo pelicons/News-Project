@@ -21,12 +21,13 @@ class App extends Component {
       <div>
 
         <Header />
+        <LoginPage changeLogin={this.changeLogin} />
         <Router>
           <Error default />
           <ArticlesList path="/*" loginStatus={this.state.currentUserLogin} />
           <TopicsList path="/topics/*" />
         </Router>
-        <LoginPage changeLogin={this.changeLogin} />
+       
 
       </div>
     );
