@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { getComments, deleteComments } from '../api';
+import { getComments } from '../api';
 import DeleteCommentCard from '../components/deleteCommentsCard'
 
 
@@ -15,7 +15,7 @@ class CommentsBodies extends Component {
             <div>
                 {this.state.commentsBody.map((comment) => {
                     return (<div>
-                        <DeleteCommentCard comment={comment} currentUserLogin={this.props.currentUserLogin} />
+                        <DeleteCommentCard comment={comment} currentUserLogin={this.props.currentUserLogin} commentsFilter={this.commentsFilter} />
                     </div>
                     )
                 })}
@@ -36,9 +36,17 @@ class CommentsBodies extends Component {
                 this.setState({ commentsBody: res.data.comments })
             })
         }
+    }
+    commentsFilter = (commentsID) => {
 
-
+        console.log(commentsID);
+        const filteredComments = this.state.commentsBody.filter(comment => comment.comment_id !== commentsID);
+        console.log({filteredComments});
+        this.setState({ commentsBody: filteredComments })
     }
 }
+
+
+
 
 export default CommentsBodies;
