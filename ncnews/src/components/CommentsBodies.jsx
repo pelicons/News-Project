@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { getComments } from '../api';
 import DeleteCommentCard from '../components/deleteCommentsCard'
+import PostCommentComponent from './PostCommentComponent';
 
 
 class CommentsBodies extends Component {
@@ -13,6 +14,9 @@ class CommentsBodies extends Component {
 
         return (
             <div>
+                <PostCommentComponent id={this.props.id}
+                        currentUserLogin={this.props.currentUserLogin}
+                        AddCommentState={this.AddCommentState} />
                 {this.state.commentsBody.map((comment) => {
                     return (<div>
                         <DeleteCommentCard comment={comment} currentUserLogin={this.props.currentUserLogin} commentsFilter={this.commentsFilter} />

@@ -10,7 +10,7 @@ class PostCommentComponent extends Component {
     }
 
     render() {
-     
+
         return (
 
             < div >
@@ -50,8 +50,9 @@ class PostCommentComponent extends Component {
 
 
         postComment(currentAuthor, currentBody, this.props.id).then((res) => {
-            console.log(res);
-            this.props.AddCommentState(res);
+            console.log(res.data);
+          
+            this.props.AddCommentState(res.data.comment);
         })
     }
 }

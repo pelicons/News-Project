@@ -15,9 +15,7 @@ class SingleArticle extends Component {
     }
     render() {
         console.log(this.state.individualArticle)
-        console.log(this.state.individualArticle)
-        console.log(this.state.individualArticle)
-        console.log(this.state.individualArticle)
+
 
         return (
 
@@ -65,8 +63,15 @@ class SingleArticle extends Component {
         }))
     }
     AddCommentState = (comment) => {
-        console.log(comment);
+      console.log(this.state.individualArticle)
         const newCommentsArray = [...this.state.individualArticle, comment];
+
+        console.log(newCommentsArray);
+        console.log(newCommentsArray);
+        console.log(newCommentsArray);
+        console.log(newCommentsArray);
+        console.log(newCommentsArray);
+
         this.setState({
             individualArticle: newCommentsArray
 
