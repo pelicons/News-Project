@@ -14,6 +14,11 @@ class SingleArticle extends Component {
 
     }
     render() {
+        console.log(this.state.individualArticle)
+        console.log(this.state.individualArticle)
+        console.log(this.state.individualArticle)
+        console.log(this.state.individualArticle)
+
         return (
 
             <div>
@@ -29,7 +34,9 @@ class SingleArticle extends Component {
                 <CommentsBodies id={this.props.id} currentUserLogin={this.props.currentUserLogin} />
                 <br></br>
                 <div>
-                    <PostCommentComponent id={this.props.id} currentUserLogin={this.props.currentUserLogin} />
+                    <PostCommentComponent id={this.props.id}
+                        currentUserLogin={this.props.currentUserLogin}
+                        AddCommentState={this.AddCommentState} />
 
                 </div>
 
@@ -56,10 +63,14 @@ class SingleArticle extends Component {
             console.log(res);
 
         }))
+    }
+    AddCommentState = (comment) => {
+        console.log(comment);
+        const newCommentsArray = [...this.state.individualArticle, comment];
+        this.setState({
+            individualArticle: newCommentsArray
 
-        // }
-        // return { voteChange: prevState.voteChange + direction }
-
+        })
     }
 }
 
