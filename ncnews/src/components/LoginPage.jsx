@@ -7,23 +7,39 @@ class LoginPage extends Component {
     }
 
     render() {
+
         return (
             <div>
-                <form onSubmit={this.submitInput}>
-                    <input type='text' onChange={this.updateUserInput} />
-                    <button 
-                    >Login Info</button>
+                {!this.props.currentUserLogin &&
+                    <form onSubmit={this.submitInput}>
+                        <input type='text' onChange={this.updateUserInput} />
+                        <button><i><b>Login</b></i></button>
 
-                </form>
+
+                    </form>
+                }
+                {this.props.currentUserLogin &&
+                    <div>
+                        <button value={null} onClick={this.submitInput}> <i><b>Logout</b></i> </button>
+
+                    </div>
+                }
             </div >
         );
     }
     updateUserInput = (event) => {
         this.setState({ userInput: event.target.value })
     }
+
+
     submitInput = (event) => {
         event.preventDefault();
-        this.props.changeLogin(this.state.userInput)
+        if (this.state.userInput === this.props.currentUserLogin) {
+            return this.props.changeLogin(null);
+        } else {
+
+            return this.props.changeLogin(this.state.userInput)
+        }
     }
 }
 

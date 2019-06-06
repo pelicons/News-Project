@@ -15,31 +15,40 @@ class App extends Component {
     currentUserLogin: null
   };
 
+
+
   render() {
 
     return (
       <div>
 
         <Header />
-        <LoginPage changeLogin={this.changeLogin} />
+        <LoginPage changeLogin={this.changeLogin} currentUserLogin={this.state.currentUserLogin} changeLogin={this.changeLogin} />
         <Router>
           <Error default />
           <ArticlesList path="/*" loginStatus={this.state.currentUserLogin} />
           <TopicsList path="/topics/*" />
         </Router>
-       
+
 
       </div>
     );
   }
 
   changeLogin = (input) => {
-    getUser(input).then((res) => {
-      if (res) {
-        this.setState({ currentUserLogin: res.username })
 
-      }
-    })
+    if (!input) //is null set in LoginPage if current login state !== current user value 
+    {
+      return this.setState({ currentUserLogin: null })
+    } else {
+      getUser(input).then((res) => {
+        if (res) {
+          this.setState({ currentUserLogin: res.username })
+
+        }
+
+      })
+    }
   }
 }
 
