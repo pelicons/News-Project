@@ -29,7 +29,7 @@ export const getComments = (id) => {
 
 
     return axios.get(`${url}/articles/${id.id}/comments`).then((res) => {
-        console.log(res, "api");
+       
         return res
     });
 }
@@ -37,13 +37,13 @@ export const getComments = (id) => {
 export const getArticlesByTopics = (input) => {
 
     return axios.get(`${url}/articles?topic=${input}`).then((res) => {
-        console.log(res, "api");
+
         return res
     });
 }
 
 export const getSortedArticles = (sortedQuery) => {
-    console.log(sortedQuery, 'apiaaaaaaaaaaaa')
+
     return axios.get(`${url}/articles?sort_by=${sortedQuery}`).then((res) => {
         console.log(res, "SOOOOOOOOOOORTED");
         return res

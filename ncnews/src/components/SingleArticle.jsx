@@ -26,7 +26,7 @@ class SingleArticle extends Component {
                 <CommentsBodies id={this.props.id} />
                 <br></br>
                 <div>
-                <PostCommentComponent id={this.props.id} />
+                    <PostCommentComponent id={this.props.id} loginStatus={this.props.loginStatus} />
                 </div>
 
 

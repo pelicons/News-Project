@@ -23,7 +23,7 @@ class App extends Component {
         <Header />
         <Router>
           <Error default />
-          <ArticlesList path="/*" />
+          <ArticlesList path="/*" loginStatus={this.state.currentUserLogin} />
           <TopicsList path="/topics/*" />
         </Router>
         <LoginPage changeLogin={this.changeLogin} />

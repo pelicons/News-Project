@@ -31,7 +31,7 @@ class ArticlesList extends Component {
         return (
             <div>
                 <Router>
-                    <SingleArticle path="/:id" />
+                    <SingleArticle path="/:id" loginStatus={this.props.loginStatus} />
                 </Router>
                 <SortComponent SortedArticles={this.SortedArticles} />
 
