@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Link, Router } from "@reach/router";
+import { Router } from "@reach/router";
 import Header from './components/Header';
 import ArticlesList from './components/ArticlesList';
 import LoginPage from './components/LoginPage';
 import { getUser } from './api'
 import TopicsList from './components/topicsList'
+import { Error } from './components/Error'
 
 
 
@@ -18,9 +19,10 @@ class App extends Component {
 
     return (
       <div>
-         
+
         <Header />
         <Router>
+          <Error default />
           <ArticlesList path="/*" />
           <TopicsList path="/topics/*" />
         </Router>

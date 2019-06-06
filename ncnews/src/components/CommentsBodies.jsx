@@ -8,7 +8,7 @@ class CommentsBodies extends Component {
     }
 
     render() {
-        console.log(this.state.commentsBody, "state");
+
         return (
             <div>
                 {this.state.commentsBody.map((comment) => {

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { getArticlesByTopics } from '../api';
-import { Link, Router } from "@reach/router";
+import { Link } from "@reach/router";
+import SortComponent from '../components/SortComponent';
+import { getSortedArticles } from '../api'
 
 
 
@@ -16,7 +18,9 @@ class ArticlesByTopic extends Component {
     }
     render() {
         return (
+            //SortComponent also child of ArticlesList which isn't allowed? Delete SortedArticles and SortComponent from this file
             <div>
+                <SortComponent SortedArticles={this.SortedArticles} />
                 <ul>
                     {this.state.articlesByTopic.map((article) => {
                         console.log(article);
@@ -29,6 +33,12 @@ class ArticlesByTopic extends Component {
                 </ul>
             </div>
         );
+    }
+    SortedArticles = (input) => {
+        getSortedArticles(input).then((res) => {
+            this.setState({ articlesbyTopic: res.data.articles })
+
+        })
     }
 }
 

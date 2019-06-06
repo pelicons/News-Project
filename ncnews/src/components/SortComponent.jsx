@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { getSortedArticles } from '../api';
+
 
 
 class SortComponent extends Component {
@@ -24,14 +24,17 @@ class SortComponent extends Component {
 
         )
     }
+    
     updateSortState = (event) => {
+
         this.setState({ sort_by: event.target.value })
-        console.log(this.state.sort_by)
-        console.log(this.props.SortedArticles)
-            , () => {
-                this.props.SortedArticles(this.state.sort_by)
-            }
+
+        console.log(this.state.sort_by, 'HHHHHHHHHHHHHHHHHH');
+        this.props.SortedArticles(this.state.sort_by)
+        
+
     }
 }
+
 
 export default SortComponent;

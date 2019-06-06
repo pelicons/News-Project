@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { getTopics } from '../api';
-import axios from 'axios';
 import { Link, Router } from "@reach/router";
 import ArticlesByTopic from './ArticlesByTopic';
 
@@ -31,9 +30,7 @@ class TopicsList extends Component {
         );
     }
 
-    // componentDidUpdate(prevProps, prevState) {
-    //     console.log(prevState);
-    //     if (prevState.importedTopics !== this.state.importedTopics) {
+
     componentDidMount() {
         getTopics(this.props).then((res) => {
             this.setState({ importedTopics: res.data.topics })

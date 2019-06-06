@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { getArticle, getComments } from '../api';
+import { getArticle } from '../api';
 import CommentsBodies from '../components/CommentsBodies'
 
 

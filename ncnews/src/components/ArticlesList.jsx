@@ -8,6 +8,9 @@ import { getSortedArticles } from '../api';
 class ArticlesList extends Component {
     state = {
         articlesImported: [],
+        total_count: 0,
+        p: 1,
+
 
         //sort_by value is input for the get based on drop down menu?
     };
@@ -54,10 +57,7 @@ class ArticlesList extends Component {
 
     SortedArticles = (input) => {
         getSortedArticles(input).then((res) => {
-            console.log(res);
-            console.log(res);
-            console.log(res);
-            this.setState({ articlesImported: res })
+            this.setState({ articlesImported: res.data.articles })
 
         })
     }

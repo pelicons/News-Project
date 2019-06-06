@@ -1,5 +1,5 @@
 import axios from 'axios';
-import react from 'react';
+
 
 const url = `https://mynewsapp-matthew.herokuapp.com/api`;
 
@@ -20,7 +20,7 @@ export const getTopics = (input) => {
 
 export const getArticle = (input) => {
 
-    return axios.get(`${url}` + "/articles/" + `${input}`).then((res) => {
+    return axios.get(`${url}/articles/${input}`).then((res) => {
         return res
     });
 }
@@ -28,7 +28,7 @@ export const getArticle = (input) => {
 export const getComments = (input) => {
 
 
-    return axios.get(`${url}` + "/articles/" + `${input.id}` + "/comments").then((res) => {
+    return axios.get(`${url}/articles/${input.id}/comments`).then((res) => {
         console.log(res, "api");
         return res
     });
@@ -36,15 +36,15 @@ export const getComments = (input) => {
 
 export const getArticlesByTopics = (input) => {
 
-    return axios.get(`${url}` + "/articles?topic=" + `${input}`).then((res) => {
+    return axios.get(`${url}/articles?topic=${input}`).then((res) => {
         console.log(res, "api");
         return res
     });
 }
 
 export const getSortedArticles = (input) => {
-
-    return axios.get(`${url}` + "/articles?sort_by=" + `${input}`).then((res) => {
+     console.log(input, 'apiaaaaaaaaaaaa')
+    return axios.get(`${url}/articles?sort_by=${input}`).then((res) => {
         console.log(res, "SOOOOOOOOOOORTED");
         return res
     });
