@@ -4,7 +4,9 @@ import { postComment } from '../api'
 class PostCommentComponent extends Component {
 
     state = {
+        author: '',
         body: ''
+
     }
 
     render() {
@@ -13,7 +15,7 @@ class PostCommentComponent extends Component {
 
             < div >
                 {this.props.loginStatus &&
-                    < form onSubmit={postComment} >
+                    < form onSubmit={this.submitComment} >
                         <label>
                             Comment:
               <input
@@ -31,12 +33,25 @@ class PostCommentComponent extends Component {
         );
     }
     handleChange = event => {
-        this.setState({ body: event.target.value });
-
+        this.setState({
+            body: event.target.value,
+            author: this.props.loginStatus
+        });
         setTimeout(() => {
-            console.log(this.state.name);
+            console.log(this.state.value);
         }, 4 * 100);
     };
+    submitComment = (event) => {
+        const currentAuthor = this.props.loginStatus;
+        const currentBody = this.state.body;
+        
+        event.preventDefault();
+
+
+        postComment(currentAuthor, currentBody, this.props.id).then((res) => {
+            console.log(res);
+        })
+    }
 }
 
 

@@ -29,7 +29,7 @@ export const getComments = (id) => {
 
 
     return axios.get(`${url}/articles/${id.id}/comments`).then((res) => {
-       
+
         return res
     });
 }
@@ -50,17 +50,16 @@ export const getSortedArticles = (sortedQuery) => {
     });
 }
 
-export const postComment = (id, body) => {
-    console.log(id);
-    console.log(body);
+export const postComment = (currentAuthor, currentBody, id) => {
+    
 
-    return axios.post(`https://nc-student-tracker.herokuapp.com/api/articles/${id}/comments`, { body })
+    return axios.post(`${url}/articles/${id}/comments`, { author: currentAuthor, body: currentBody })
         .then((res) => {
             console.log(res);
             return res
         })
 }
 // articles?sort_by=comment_count
-
+//https://mynewsapp-matthew.herokuapp.com/api/articles/1/comments
 
 
