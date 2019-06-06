@@ -10,11 +10,11 @@ class PostCommentComponent extends Component {
     }
 
     render() {
-        console.log(this.props.loginStatus);
+        console.log(this.props.currentUserLogin);
         return (
 
             < div >
-                {this.props.loginStatus &&
+                {this.props.currentuserLogin &&
                     < form onSubmit={this.submitComment} >
                         <label>
                             Comment:
@@ -35,16 +35,16 @@ class PostCommentComponent extends Component {
     handleChange = event => {
         this.setState({
             body: event.target.value,
-            author: this.props.loginStatus
+            author: this.props.currentUserLogin
         });
         setTimeout(() => {
             console.log(this.state.value);
         }, 4 * 100);
     };
     submitComment = (event) => {
-        const currentAuthor = this.props.loginStatus;
+        const currentAuthor = this.props.currentUserLogin;
         const currentBody = this.state.body;
-        
+
         event.preventDefault();
 
 

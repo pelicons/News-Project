@@ -79,6 +79,16 @@ export const patchVotes = (direction, id) => {
         return res
     })
 }
+
+export const deleteComment = (commentid) => {
+    return axios.delete(`${url}/comments/${commentid}`).then((res) => {
+        console.log(res)
+        return res
+    })
+
+
+
+}
 // articles?sort_by=comment_count
 //https://mynewsapp-matthew.herokuapp.com/api/articles/1/comments
 

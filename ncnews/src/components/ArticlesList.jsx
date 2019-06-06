@@ -47,7 +47,7 @@ class ArticlesList extends Component {
         return (
             <div>
                 <Router>
-                    <SingleArticle path="/:id" loginStatus={this.props.loginStatus} />
+                    <SingleArticle path="/:id" currentUserLogin={this.props.currentUserLogin} />
                 </Router>
                 <SortComponent SortedArticles={this.SortedArticles} />
 

@@ -26,7 +26,7 @@ class App extends Component {
         <LoginPage changeLogin={this.changeLogin} currentUserLogin={this.state.currentUserLogin} changeLogin={this.changeLogin} />
         <Router>
           <Error default />
-          <ArticlesList path="/*" loginStatus={this.state.currentUserLogin} />
+          <ArticlesList path="/*" currentUserLogin={this.state.currentUserLogin} />
           <TopicsList path="/topics/*" />
         </Router>
 

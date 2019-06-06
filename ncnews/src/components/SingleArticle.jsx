@@ -26,10 +26,10 @@ class SingleArticle extends Component {
                 <br></br>
                 {this.state.individualArticle.comment_count}
                 <br></br>
-                <CommentsBodies id={this.props.id} />
+                <CommentsBodies id={this.props.id} currentUserLogin={this.props.currentUserLogin} />
                 <br></br>
                 <div>
-                    <PostCommentComponent id={this.props.id} loginStatus={this.props.loginStatus} />
+                    <PostCommentComponent id={this.props.id} currentUserLogin={this.props.currentUserLogin} />
                 </div>
 
             </div>

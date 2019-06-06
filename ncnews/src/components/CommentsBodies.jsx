@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { getComments } from '../api';
+import { getComments, deleteComments } from '../api';
+import DeleteCommentCard from '../components/deleteCommentsCard'
+
 
 class CommentsBodies extends Component {
     state = {
@@ -13,14 +15,7 @@ class CommentsBodies extends Component {
             <div>
                 {this.state.commentsBody.map((comment) => {
                     return (<div>
-                        <ul key={comment.article_id}>
-                            <li>{comment.article_id}</li>
-                            <li>{comment.author}</li>
-                            <li>{comment.body}</li>
-                            <li>{comment.comment_id}</li>
-                            <li>{comment.created_at}</li>
-                            <li>{comment.votes}</li>
-                        </ul>
+                        <DeleteCommentCard comment={comment} currentUserLogin={this.props.currentUserLogin} />
                     </div>
                     )
                 })}
@@ -41,6 +36,8 @@ class CommentsBodies extends Component {
                 this.setState({ commentsBody: res.data.comments })
             })
         }
+
+
     }
 }
 
