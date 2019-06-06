@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { getArticle } from '../api';
 import CommentsBodies from '../components/CommentsBodies'
+import PostCommentComponent from './PostCommentComponent.jsx'
 
 
 
@@ -12,9 +13,7 @@ class SingleArticle extends Component {
     }
     render() {
         return (
-            // <div>
-            //     <CommentsOnArticle updateCommentsBody={this.updateCommentsBody} />
-            // </div>
+
             <div>
                 {this.state.individualArticle.title}
                 <br></br>
@@ -25,6 +24,10 @@ class SingleArticle extends Component {
                 {this.state.individualArticle.comment_count}
                 <br></br>
                 <CommentsBodies id={this.props.id} />
+                <br></br>
+                <div>
+                <PostCommentComponent id={this.props.id} />
+                </div>
 
 
             </div>

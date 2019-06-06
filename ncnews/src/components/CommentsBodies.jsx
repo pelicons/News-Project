@@ -13,7 +13,7 @@ class CommentsBodies extends Component {
             <div>
                 {this.state.commentsBody.map((comment) => {
                     return (<div>
-                        <ul>
+                        <ul key={comment.article_id}>
                             <li>{comment.article_id}</li>
                             <li>{comment.author}</li>
                             <li>{comment.body}</li>
@@ -26,6 +26,13 @@ class CommentsBodies extends Component {
                 })}
             </div>
         );
+    }
+
+    componentDidMount() {
+        getComments(this.props).then((res) => {
+            console.log(res.data.comments, "res.data.comments");
+            this.setState({ commentsBody: res.data.comments })
+        })
     }
     componentDidUpdate(prevProps) {
         if (this.props.id !== prevProps.id) {

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Error = () => {
+export const Error = () => {
     return (
         <div>
             <h1>not found</h1>
@@ -8,4 +8,3 @@ const Error = () => {
     );
 };
 
-export default Error;

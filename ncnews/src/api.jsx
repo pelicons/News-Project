@@ -3,8 +3,8 @@ import axios from 'axios';
 
 const url = `https://mynewsapp-matthew.herokuapp.com/api`;
 
-export const getUser = (input) => {
-    return axios.get(`${url}/users/${input}`).then(({ data: { user } }) => {
+export const getUser = (specificUser) => {
+    return axios.get(`${url}/users/${specificUser}`).then(({ data: { user } }) => {
 
         return user
     })
@@ -18,17 +18,17 @@ export const getTopics = (input) => {
 
 }
 
-export const getArticle = (input) => {
+export const getArticle = (id) => {
 
-    return axios.get(`${url}/articles/${input}`).then((res) => {
+    return axios.get(`${url}/articles/${id}`).then((res) => {
         return res
     });
 }
 
-export const getComments = (input) => {
+export const getComments = (id) => {
 
 
-    return axios.get(`${url}/articles/${input.id}/comments`).then((res) => {
+    return axios.get(`${url}/articles/${id.id}/comments`).then((res) => {
         console.log(res, "api");
         return res
     });
@@ -42,12 +42,23 @@ export const getArticlesByTopics = (input) => {
     });
 }
 
-export const getSortedArticles = (input) => {
-     console.log(input, 'apiaaaaaaaaaaaa')
-    return axios.get(`${url}/articles?sort_by=${input}`).then((res) => {
+export const getSortedArticles = (sortedQuery) => {
+    console.log(sortedQuery, 'apiaaaaaaaaaaaa')
+    return axios.get(`${url}/articles?sort_by=${sortedQuery}`).then((res) => {
         console.log(res, "SOOOOOOOOOOORTED");
         return res
     });
+}
+
+export const postComment = (id, body) => {
+    console.log(id);
+    console.log(body);
+
+    return axios.post(`https://nc-student-tracker.herokuapp.com/api/articles/${id}/comments`, { body })
+        .then((res) => {
+            console.log(res);
+            return res
+        })
 }
 // articles?sort_by=comment_count
 
