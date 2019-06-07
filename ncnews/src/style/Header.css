@@ -1,4 +1,17 @@
-#12 {
-background-color: blue;
+#header {
+background-color: palegoldenrod;
+text-align: center;
 
+}
+
+
+b {
+    border: 5px blue solid;
+    color: black;
+
+}
+
+i {
+    border: blue;
+    color: black;
 }

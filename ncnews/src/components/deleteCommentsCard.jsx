@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { deleteComment, patchCommentVotes } from '../api';
+import '../style/Comments.css';
 
 
 
@@ -12,7 +13,7 @@ class DeleteCommentCard extends Component {
 
         return (
             //destructure this.props.comment
-            <ul key={this.props.comment.article_id} >
+            <ul id="singleComment" key={this.props.comment.article_id} >
                 <li>{this.props.comment.article_id} article id</li>
                 <li>{this.props.comment.author} author</li>
                 {this.props.comment.author ===

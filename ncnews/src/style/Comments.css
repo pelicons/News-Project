@@ -1,3 +1,13 @@
 #commentDiv {
-    background-color: green;
+    background-color: palegoldenrod;
+    border: 5px blue solid;
+}
+
+.comment{
+    border: 5px blue solid;
+}
+
+.singleComment {
+    border: 5px blue solid;
+    
 }

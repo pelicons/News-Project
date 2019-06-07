@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { postComment } from '../api'
+import '../style/Comments.css';
 
 class PostCommentComponent extends Component {
 
@@ -51,7 +52,7 @@ class PostCommentComponent extends Component {
 
         postComment(currentAuthor, currentBody, this.props.id).then((res) => {
             console.log(res.data);
-          
+
             this.props.AddCommentState(res.data.comment);
         })
     }
