@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { getComments } from '../api';
 import DeleteCommentCard from '../components/deleteCommentsCard'
 import PostCommentComponent from './PostCommentComponent';
+import '../style/Comments.css';
 
 
 
@@ -14,7 +15,7 @@ class CommentsBodies extends Component {
     render() {
         console.log(this.state.commentsBody);
         return (
-            <div>
+            <div id="commentDiv">
                 <PostCommentComponent id={this.props.id}
                     currentUserLogin={this.props.currentUserLogin}
                     AddCommentState={this.AddCommentState} />

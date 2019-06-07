@@ -4,6 +4,7 @@ import { Link, Router } from "@reach/router";
 import SingleArticle from './SingleArticle';
 import SortComponent from '../components/SortComponent';
 import { getSortedArticles, getTotalArticleCount } from '../api';
+import '../style/ArticlesList.css';
 
 class ArticlesList extends Component {
     state = {
@@ -56,11 +57,11 @@ class ArticlesList extends Component {
 
                     return (
 
-                        <div key={article.article_id}>
+                        <div id='ListBack' key={article.article_id}>
                             <ul key={article.article_id}>
                                 <Link to={`/${article.article_id}`}>
                                     <li>{article.title}</li></Link>
-                                
+
 
                             </ul>
                         </div>
