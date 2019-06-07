@@ -25,8 +25,12 @@ class SingleArticle extends Component {
                 {/* <button disabled={voteChange === 1} onClick={() => this.handleVote(1)}></button> */}
                 {this.state.individualArticle.body}
                 <br></br>
-                <button disabled={this.state.votes === 1} onClick={() => { this.HandleVote(1) }}>UP<br></br><b>{this.state.individualArticle.votes + 1}</b></button>
-                <button disabled={this.state.votes === -1} onClick={() => { this.HandleVote(-1) }}>DOWN<br></br><b>{this.state.individualArticle.votes - 1}</b></button>
+                {this.props.currentUserLogin &&
+                    <div>
+                        <button disabled={this.state.votes === 1} onClick={() => { this.HandleVote(1) }}>UP<br></br><b>{this.state.individualArticle.votes + 1}</b></button>
+                        <button disabled={this.state.votes === -1} onClick={() => { this.HandleVote(-1) }}>DOWN<br></br><b>{this.state.individualArticle.votes - 1}</b></button>
+                    </div>
+                }
                 <br></br>
                 comment count delete eventually
                 <br></br>
@@ -65,7 +69,7 @@ class SingleArticle extends Component {
         copy.votes = newArticleVotes
 
 
-    
+
         this.setState({ votes: stateVoteLimiter, individualArticle: copy })
 
         patchVotes(direction, this.props.id).catch((err) => {

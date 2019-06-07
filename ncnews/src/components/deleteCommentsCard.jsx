@@ -17,14 +17,21 @@ class DeleteCommentCard extends Component {
                 <li>{this.props.comment.author} author</li>
                 {this.props.comment.author ===
                     this.props.currentUserLogin &&
-                    <div>
-                        <button onClick={this.deleteClicked}>delete</button>
-                    </div>
+                
+                        <div>
+                            <button onClick={this.deleteClicked}>delete</button>
 
 
-                    <button class="voteStyle" disabled={this.state.votes === 1} onClick={() => { this.HandleVote(1) }}>UP<br></br><b>{this.props.comment.votes + 1}</b></button>
-                    <button class="voteStyle" disabled={this.state.votes === -1} onClick={() => { this.HandleVote(-1) }}>DOWN<br></br><b>{this.props.comment.votes - 1}</b></button>
+
+                            <button class="voteStyle" disabled={this.state.votes === 1}
+
+                                onClick={() => { this.HandleVote(1) }}>UP<br></br><b>{this.props.comment.votes + 1}</b></button>
+
+                            <button class="voteStyle" disabled={this.state.votes === -1}
+                                onClick={() => { this.HandleVote(-1) }}>DOWN<br></br><b>{this.props.comment.votes - 1}</b></button>
+                        </div>
                     
+
                 }
 
 
