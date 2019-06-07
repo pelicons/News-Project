@@ -10,7 +10,7 @@ const Header = () => {
             </br>
             <br>
             </br>
-            <Link to="/topics"><i>Topics</i></Link>
+            <Link to="/topics"><i>List of Topics</i></Link>
         </div>
     );
 };

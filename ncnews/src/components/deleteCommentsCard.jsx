@@ -10,7 +10,8 @@ import { Button, ButtonToolBar } from 'react-bootstrap/Button';
 class DeleteCommentCard extends Component {
 
     state = {
-        votes: 0
+        votes: 0,
+
     }
     render() {
 
@@ -30,10 +31,10 @@ class DeleteCommentCard extends Component {
 
                         <button class="arrow" disabled={this.state.votes === 1}
 
-                            onClick={() => { this.HandleVote(1) }}>UP<br></br><b>{this.props.comment.votes + 1}</b></button>
+                            onClick={() => { this.HandleVote(1) }}>UP<br></br><b>{+1}</b></button>
 
                         <button class="voteStyle" disabled={this.state.votes === -1}
-                            onClick={() => { this.HandleVote(-1) }}>DOWN<br></br><b>{this.props.comment.votes - 1}</b></button>
+                            onClick={() => { this.HandleVote(-1) }}>DOWN<br></br><b>{-1}</b></button>
 
                     </div>
 
@@ -63,7 +64,11 @@ class DeleteCommentCard extends Component {
 
         let stateVoteLimiter = this.state.votes + direction;
 
-        this.setState({ votes: stateVoteLimiter })
+
+        this.setState({
+            votes: stateVoteLimiter,
+
+        })
 
 
 
