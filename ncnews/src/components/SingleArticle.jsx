@@ -65,12 +65,12 @@ class SingleArticle extends Component {
     HandleVote = (direction) => {
         let stateVoteLimiter = this.state.votes + direction;
         let newArticleVotes = this.state.individualArticle.votes + direction
-        let copy = this.state.individualArticle
-        copy.votes = newArticleVotes
+        let stateCopy = this.state.individualArticle
+        stateCopy.votes = newArticleVotes
 
 
 
-        this.setState({ votes: stateVoteLimiter, individualArticle: copy })
+        this.setState({ votes: stateVoteLimiter, individualArticle: stateCopy })
 
         patchVotes(direction, this.props.id).catch((err) => {
             console.log(err);

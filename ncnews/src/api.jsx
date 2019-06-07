@@ -79,22 +79,18 @@ export const deleteComment = (commentid) => {
 export const getSortedTopicsByArticle = (topic, query) => {
 
     return axios.get(`${url}/articles?topic=${topic}&sort_by=${query}`).then((res) => {
-        console.log(res, "SOOOOOOOOOOORTED");
+
         return res
     });
 
 }
-// articles?sort_by=comment_count
-//https://mynewsapp-matthew.herokuapp.com/api/articles/1/comments
+
 
 
 
 export const patchVotes = (direction, id) => {
     return axios.patch(`${url}/articles/${id}`, ({ inc_votes: direction })).then((res) => {
-        console.log(res);
-        console.log(res);
-        console.log(res);
-        console.log(res);
+
 
         return res
     })
@@ -102,10 +98,7 @@ export const patchVotes = (direction, id) => {
 
 export const patchCommentVotes = (direction, commentid) => {
     return axios.patch(`${url}/comments/${commentid}`, ({ inc_votes: direction })).then((res) => {
-        console.log(res);
-        console.log(res);
-        console.log(res);
-        console.log(res);
+
 
         return res
     })

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-
+import { Error } from './Error'
+import Button from 'react-bootstrap/Button';
 
 class LoginPage extends Component {
     state = {
@@ -33,7 +34,10 @@ class LoginPage extends Component {
 
 
     submitInput = (event) => {
+
         event.preventDefault();
+
+
         if (this.state.userInput === this.props.currentUserLogin) {
             return this.props.changeLogin(null);
         } else {

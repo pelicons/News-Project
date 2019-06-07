@@ -29,7 +29,7 @@ class SortComponent extends Component {
 
         this.setState({ sort_by: event.target.value })
 
-        console.log(this.state.sort_by, 'HHHHHHHHHHHHHHHHHH');
+      
         this.props.SortedArticles(this.state.sort_by)
         
 
