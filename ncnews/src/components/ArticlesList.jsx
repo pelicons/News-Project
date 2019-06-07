@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Link, Router } from "@reach/router";
 import SingleArticle from './SingleArticle';
 import SortComponent from '../components/SortComponent';
-import { getSortedArticles, getTotalArticleCount } from '../api';
+import { getSortedArticles, getTotalArticleCount, getArticles } from '../api';
 import '../style/ArticlesList.css';
 
 class ArticlesList extends Component {
@@ -29,16 +29,40 @@ class ArticlesList extends Component {
 
     componentDidMount() {
 
-        const url = `https://mynewsapp-matthew.herokuapp.com/api/articles`;
-        axios.get(url).then((articles) => {   //then(({ data: { articles } }) => {
 
-            console.log(articles.data.totalcount);
-
+        getArticles().then((res) => {
             this.setState({
-                articlesImported: articles.data.articles,
-                totalcount: articles.data.totalcount
-            });
-        });
+                articlesImported: res.data.articles,
+                totalcount: res.data.totalcount
+            })
+
+            console.log(res);
+        })
+
+
+
+
+    }
+
+
+    componentDidUpdate(prevProps, prevState) {
+        if (prevState.articlesImported === this.state.articlesImported) {
+            //confused have to click twice
+            // {() => { this.updateSortState }} on button?
+            //have to set the state on click
+            getArticles().then((res) => {
+                console.log(res);
+                this.setState({
+                    articlesImported: res.data.articles,
+                    totalcount: res.data.totalcount
+                })
+
+
+            })
+        }
+
+
+
 
     }
 
@@ -53,23 +77,26 @@ class ArticlesList extends Component {
                 <SortComponent SortedArticles={this.SortedArticles} />
 
 
-                {this.state.articlesImported.map((article) => {
+                {
+                    this.state.articlesImported.map((article) => {
 
-                    return (
+                        return (
 
-                        <div id='ListBack' key={article.article_id}>
-                            <ul key={article.article_id}>
-                                <Link to={`/${article.article_id}`}>
-                                    <li>{article.title}</li></Link>
+                            <div id='ListBack' key={article.article_id}>
+                                <ul key={article.article_id}>
+                                    <Link to={`/${article.article_id}`}>
+                                        <li>{article.title}</li></Link>
+                                    <br></br>
+                                    <li>{article.votes} Votes</li>
 
 
-                            </ul>
-                        </div>
-                    )
-                })
+                                </ul>
+                            </div>
+                        )
+                    })
                 }
 
-            </div>
+            </div >
         );
     }
 
