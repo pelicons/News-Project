@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { getComments } from '../api';
-import DeleteCommentCard from '../components/deleteCommentsCard'
+import CommentCard from '../components/deleteCommentsCard'
 import PostCommentComponent from './PostCommentComponent';
 import '../style/Comments.css';
 
@@ -20,9 +20,9 @@ class CommentsBodies extends Component {
                     currentUserLogin={this.props.currentUserLogin}
                     AddCommentState={this.AddCommentState} />
                 {this.state.commentsBody.map((comment) => {
-                    //DELETE COMMENT CARD CURRENTLY CONTANS WHOLE COMMENT, THIS MIGHT NOT BE OPTIMAL
+                 
                     return (<div>
-                        <DeleteCommentCard comment={comment} currentUserLogin={this.props.currentUserLogin} commentsFilter={this.commentsFilter} />
+                        <CommentCard comment={comment} currentUserLogin={this.props.currentUserLogin} commentsFilter={this.commentsFilter} />
                     </div>
                     )
                 })}

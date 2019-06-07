@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { getArticle } from '../api';
+import { getArticle, patchVotes } from '../api';
 import CommentsBodies from '../components/CommentsBodies'
-import { patchVotes } from '../api'
+
 
 
 
@@ -13,8 +13,7 @@ class SingleArticle extends Component {
 
     }
     render() {
-        console.log(this.state.individualArticle, "111111111111")
-        console.log(this.state.individualArticle.votes, "222222222")
+
 
 
         return (
@@ -31,8 +30,6 @@ class SingleArticle extends Component {
                         <button disabled={this.state.votes === -1} onClick={() => { this.HandleVote(-1) }}>DOWN<br></br><b>{this.state.individualArticle.votes - 1}</b></button>
                     </div>
                 }
-                <br></br>
-                comment count delete eventually
                 <br></br>
                 {this.state.individualArticle.comment_count}
                 <br></br>
