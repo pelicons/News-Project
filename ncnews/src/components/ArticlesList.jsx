@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Link, Router } from "@reach/router";
+import { Link, Router, navigate } from "@reach/router";
 import SingleArticle from './SingleArticle';
 import SortComponent from '../components/SortComponent';
 import { getSortedArticles, getTotalArticleCount, getArticles } from '../api';
@@ -35,6 +35,7 @@ class ArticlesList extends Component {
                 articlesImported: res.data.articles,
                 totalcount: res.data.totalcount
             })
+            // navigate(`/`);
 
             console.log(res);
         })
@@ -46,7 +47,7 @@ class ArticlesList extends Component {
 
 
     componentDidUpdate(prevProps, prevState) {
-        if (prevState.articlesImported === this.state.articlesImported) {
+        if (prevState.articlesImported[0] === this.state.articlesImported[0]) {
             //confused have to click twice
             // {() => { this.updateSortState }} on button?
             //have to set the state on click
@@ -84,7 +85,7 @@ class ArticlesList extends Component {
 
                             <div id='ListBack' key={article.article_id}>
                                 <ul key={article.article_id}>
-                                    <Link to={`/${article.article_id}`}>
+                                    <Link to={`/ ${article.article_id}`}>
                                         <li>{article.title}</li></Link>
                                     <br></br>
                                     <li>{article.votes} Votes</li>

@@ -12,7 +12,7 @@ class SortComponent extends Component {
         return (
             <div>
                 <button value="created_at" onClick={this.updateSortState}>Created At</button>
-                <button value="votes" onClick={this.updateSortState}>Votes</button>
+                <button value="votes" onClick={ this.updateSortState }>Votes</button>
                 <button value="comment_count" onClick={this.updateSortState}>Comment Count</button>
             </div>
 
