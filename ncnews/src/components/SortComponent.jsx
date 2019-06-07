@@ -6,12 +6,7 @@ class SortComponent extends Component {
     state = {
         sort_by: ''
     }
-    // showMenu(event) {
-    //     event.preventDefault();
-    //     this.setState({
-    //         sort_by: 'created_at'
-    //     })
-    // }
+
 
     render() {
         return (
@@ -24,14 +19,14 @@ class SortComponent extends Component {
 
         )
     }
-    
+
     updateSortState = (event) => {
 
         this.setState({ sort_by: event.target.value })
 
-      
+
         this.props.SortedArticles(this.state.sort_by)
-        
+
 
     }
 }
