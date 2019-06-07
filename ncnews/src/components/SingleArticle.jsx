@@ -25,14 +25,14 @@ class SingleArticle extends Component {
                 {/* <button disabled={voteChange === 1} onClick={() => this.handleVote(1)}></button> */}
                 {this.state.individualArticle.body}
                 <br></br>
-                {this.state.individualArticle.votes}
+                <button>{this.state.individualArticle.votes}</button>
                 <br></br>
                 {this.state.individualArticle.comment_count}
                 <br></br>
                 <CommentsBodies id={this.props.id} currentUserLogin={this.props.currentUserLogin} />
                 <br></br>
                 <div>
-                
+
 
                 </div>
 
@@ -53,8 +53,11 @@ class SingleArticle extends Component {
             })
         }
     }
+
+
     HandleVote = (direction) => {
         console.log(this.props.id);
+        console.log(direction);
         patchVotes(direction, this.props.id).then((res => {
             console.log(res);
 

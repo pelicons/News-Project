@@ -60,6 +60,7 @@ class ArticlesList extends Component {
                             <ul key={article.article_id}>
                                 <Link to={`/${article.article_id}`}>
                                     <li>{article.title}</li></Link>
+                                
 
                             </ul>
                         </div>
@@ -74,7 +75,7 @@ class ArticlesList extends Component {
     SortedArticles = (input) => {
         getSortedArticles(input).then((res) => {
             this.setState({ articlesImported: res.data.articles })
-
+            console.log(res.data.articles, "article list")
         })
     }
 }

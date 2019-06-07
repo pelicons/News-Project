@@ -6,12 +6,12 @@ class SortComponent extends Component {
     state = {
         sort_by: ''
     }
-    showMenu(event) {
-        event.preventDefault();
-        this.setState({
-            sort_by: 'created_at'
-        })
-    }
+    // showMenu(event) {
+    //     event.preventDefault();
+    //     this.setState({
+    //         sort_by: 'created_at'
+    //     })
+    // }
 
     render() {
         return (

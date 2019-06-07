@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { getArticlesByTopics } from '../api';
 import { Link } from "@reach/router";
 import SortComponent from '../components/SortComponent';
-import { getSortedArticles } from '../api'
+import { getSortedTopicsByArticle } from '../api'
 
 
 
@@ -10,10 +10,18 @@ class ArticlesByTopic extends Component {
     state = {
         articlesByTopic: []
     }
-    componentDidMount(prevProps, prevState) {
+    componentDidMount() {
         getArticlesByTopics(this.props.topic).then((res) => {
             this.setState({ articlesByTopic: res.data.articles })
         })
+
+    }
+    componentDidUpdate(prevProps, prevState) {
+        if (prevProps.topic !== this.props.topic) {
+            getArticlesByTopics(this.props.topic).then((res) => {
+                this.setState({ articlesByTopic: res.data.articles })
+            })
+        }
 
     }
     render() {
@@ -34,9 +42,10 @@ class ArticlesByTopic extends Component {
             </div>
         );
     }
-    SortedArticles = (input) => {
-        getSortedArticles(input).then((res) => {
-            this.setState({ articlesbyTopic: res.data.articles })
+    SortedArticles = (query) => {
+        getSortedTopicsByArticle(this.props.topic, query).then((res) => {
+            this.setState({ articlesByTopic: res.data.articles })
+            console.log(res.data.articles, "articles by topic");
 
         })
     }
