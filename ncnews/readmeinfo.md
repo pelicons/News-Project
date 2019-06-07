@@ -30,7 +30,7 @@ Delete their own comments.
 Access it at:
  https://github.com/tuskemx/News-Project/tree/master/ncnews
 
-Run the project locally by forking the repo and run in node:
+Run the project locally by forking the repository and run in node:
 
 npm install
 npm start

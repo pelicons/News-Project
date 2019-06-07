@@ -46,8 +46,9 @@ You should implement the following functionality in your website. Check the lect
 5. log-in to the site.
 6. sort articles by:
    - date created
-   - comment_count
+   - comment_count       
    - votes
+still need to make topics update on click and have sortby working
 
 **As a logged-in user, I should be able to...**
 
@@ -56,7 +57,7 @@ You should implement the following functionality in your website. Check the lect
 9. delete my own comments.
 10. vote on an article and immediately see the change.
 11. vote on a comment and immediately see the change.
-
+still need to do 10 and 11
 **As a hiring partner, I should be able to...**
 
 12. use the site on my mobile without sacrificing style or functionality (as I may not have my laptop nearby).
