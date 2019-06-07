@@ -101,7 +101,7 @@ export const patchVotes = (direction, id) => {
 }
 
 export const patchCommentVotes = (direction, commentid) => {
-    return axios.patch(`${url}/comment/${commentid}`, ({ inc_votes: direction })).then((res) => {
+    return axios.patch(`${url}/comments/${commentid}`, ({ inc_votes: direction })).then((res) => {
         console.log(res);
         console.log(res);
         console.log(res);
