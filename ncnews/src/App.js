@@ -12,20 +12,22 @@ import { Error } from './components/Error'
 
 class App extends Component {
   state = {
-    currentUserLogin: null
+    currentUserLogin: null,
+    err: null
   };
 
 
 
   render() {
-
+    const { err, currentUserLogin } = this.state;
+    if (err) return <Error />
     return (
       <div>
 
         <Header />
         <LoginPage changeLogin={this.changeLogin} currentUserLogin={this.state.currentUserLogin} changeLogin={this.changeLogin} />
         <Router>
-          <Error default />
+          <Error default /> 
           <ArticlesList path="/*" currentUserLogin={this.state.currentUserLogin} />
           <TopicsList path="/topics/*" />
         </Router>
@@ -47,9 +49,13 @@ class App extends Component {
 
         }
 
+      }).catch((err) => {
+        this.setState({ err });
       })
     }
   }
 }
 
 export default App;
+
+

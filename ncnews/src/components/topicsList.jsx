@@ -2,16 +2,20 @@ import React, { Component } from 'react';
 import { getTopics } from '../api';
 import { Link, Router } from "@reach/router";
 import ArticlesByTopic from './ArticlesByTopic';
+import { Error } from './Error'
 
 
 class TopicsList extends Component {
     state = {
-        importedTopics: []
+        importedTopics: [],
+        err: null
     }
 
 
     render() {
-
+        const { err, currentUserLogin } = this.state;
+        if (err) return <Error />
+        console.log(err);
         return (
             <div>
                 <Router>
@@ -34,11 +38,14 @@ class TopicsList extends Component {
     componentDidMount() {
         getTopics(this.props).then((res) => {
             this.setState({ importedTopics: res.data.topics })
+        }).catch((err) => {
+            this.setState({ err });
         })
     }
-
-
 }
+
+
+
 
 
 
