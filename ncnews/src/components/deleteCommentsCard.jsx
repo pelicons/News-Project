@@ -5,6 +5,9 @@ import { deleteComment } from '../api';
 
 class DeleteCommentCard extends Component {
 
+    state = {
+        votes: 0
+    }
     render() {
 
         return (
@@ -20,6 +23,8 @@ class DeleteCommentCard extends Component {
                 <li>{this.props.comment.comment_id}</li>
                 <li>{this.props.comment.created_at}</li>
                 <li>{this.props.comment.votes}</li>
+                <button disabled={this.state.votes === 1} onClick={() => { this.props.HandleVote(1) }}>UP<br></br><b>{this.props.comment.votes + 1}</b></button>
+                <button disabled={this.state.votes === -1} onClick={() => { this.props.HandleVote(-1) }}>DOWN<br></br><b>{this.props.comment.votes - 1}</b></button>
             </ul >
 
         );
@@ -30,7 +35,7 @@ class DeleteCommentCard extends Component {
         })
         this.props.commentsFilter(this.props.comment.comment_id);
         console.log(this.props.comment.comment_id)
-       
+
     }
 
 }

@@ -90,11 +90,28 @@ export const getSortedTopicsByArticle = (topic, query) => {
 
 
 export const patchVotes = (direction, id) => {
-    return axios.patch(`${url}/comments/${id}`, ({ inc_votes: direction })).then((res) => {
+    return axios.patch(`${url}/articles/${id}`, ({ inc_votes: direction })).then((res) => {
         console.log(res);
+        console.log(res);
+        console.log(res);
+        console.log(res);
+
         return res
     })
 }
+
+export const patchCommentVotes = (direction, commentid) => {
+    return axios.patch(`${url}/comment/${commentid}`, ({ inc_votes: direction })).then((res) => {
+        console.log(res);
+        console.log(res);
+        console.log(res);
+        console.log(res);
+
+        return res
+    })
+}
+
+
 
 //          .patch('/api/articles/1')
 //.send({ inc_votes: 5 })

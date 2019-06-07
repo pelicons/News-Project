@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { getArticle } from '../api';
 import CommentsBodies from '../components/CommentsBodies'
-import PostCommentComponent from './PostCommentComponent.jsx'
 import { patchVotes } from '../api'
 
 
@@ -14,7 +13,8 @@ class SingleArticle extends Component {
 
     }
     render() {
-        console.log(this.state.individualArticle)
+        console.log(this.state.individualArticle, "111111111111")
+        console.log(this.state.individualArticle.votes, "222222222")
 
 
         return (
@@ -25,7 +25,10 @@ class SingleArticle extends Component {
                 {/* <button disabled={voteChange === 1} onClick={() => this.handleVote(1)}></button> */}
                 {this.state.individualArticle.body}
                 <br></br>
-                <button>{this.state.individualArticle.votes}</button>
+                <button disabled={this.state.votes === 1} onClick={() => { this.HandleVote(1) }}>UP<br></br><b>{this.state.individualArticle.votes + 1}</b></button>
+                <button disabled={this.state.votes === -1} onClick={() => { this.HandleVote(-1) }}>DOWN<br></br><b>{this.state.individualArticle.votes - 1}</b></button>
+                <br></br>
+                comment count delete eventually
                 <br></br>
                 {this.state.individualArticle.comment_count}
                 <br></br>
@@ -56,14 +59,23 @@ class SingleArticle extends Component {
 
 
     HandleVote = (direction) => {
-        console.log(this.props.id);
-        console.log(direction);
-        patchVotes(direction, this.props.id).then((res => {
-            console.log(res);
+        let stateVoteLimiter = this.state.votes + direction;
+        let newArticleVotes = this.state.individualArticle.votes + direction
+        let copy = this.state.individualArticle
+        copy.votes = newArticleVotes
 
-        }))
+
+    
+        this.setState({ votes: stateVoteLimiter, individualArticle: copy })
+
+        patchVotes(direction, this.props.id).catch((err) => {
+            console.log(err);
+
+            patchVotes(-direction, this.props.id); //ask whether this works
+        })
+
+
     }
-
 }
 
 export default SingleArticle;

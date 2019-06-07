@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
-import { getComments } from '../api';
+import { getComments, patchCommentVotes } from '../api';
 import DeleteCommentCard from '../components/deleteCommentsCard'
 import PostCommentComponent from './PostCommentComponent';
 
 
+
 class CommentsBodies extends Component {
     state = {
-        commentsBody: []
+        commentsBody: [],
+        votes: 0
 
     }
 
@@ -18,8 +20,9 @@ class CommentsBodies extends Component {
                     currentUserLogin={this.props.currentUserLogin}
                     AddCommentState={this.AddCommentState} />
                 {this.state.commentsBody.map((comment) => {
+                    //DELETE COMMENT CARD CURRENTLY CONTANS WHOLE COMMENT, THIS MIGHT NOT BE OPTIMAL
                     return (<div>
-                        <DeleteCommentCard comment={comment} currentUserLogin={this.props.currentUserLogin} commentsFilter={this.commentsFilter} />
+                        <DeleteCommentCard comment={comment} currentUserLogin={this.props.currentUserLogin} commentsFilter={this.commentsFilter} HandleVote={this.HandleVote} />
                     </div>
                     )
                 })}
@@ -57,6 +60,26 @@ class CommentsBodies extends Component {
 
         })
     }
+    HandleVote = (direction) => {
+        let stateVoteChange = this.state.votes + direction;
+        let stateVoteLimiter = stateVoteChange + direction;
+        let newArticleVotes = this.state.commentsBody.votes + direction
+        let copy = this.state.commentsBody
+        copy.votes = newArticleVotes
+
+
+
+        this.setState({ votes: stateVoteLimiter, commentsBody: copy })
+
+        patchCommentVotes(direction, this.props.id).catch((err) => {
+            console.log(err);
+
+            patchCommentVotes(-direction, this.props.id); //ask whether this works
+        })
+
+
+    }
+
 }
 
 
