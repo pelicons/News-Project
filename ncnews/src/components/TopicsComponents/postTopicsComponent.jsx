@@ -18,18 +18,19 @@ class PostTopicsComponent extends Component {
       };
 
       componentDidMount() {
-            this.setState({ topics: this.props.importedTopics }).catch(({ response }) => {
-            const errorstatus = response.status;
-            const errormessage = response.data.msg;
-            const err = { errorstatus, errormessage };
-            this.setState({ err });
-          });
+            this.setState({ topics: this.props.importedTopics })
+            // .catch(({ response }) => {
+          //   const errorstatus = response.status;
+          //   const errormessage = response.data.msg;
+          //   const err = { errorstatus, errormessage };
+          //   this.setState({ err });
+          // });
         }
 
       componentDidUpdate(prevProps, prevState) {
         if (prevState.topics.length !== this.state.topics.length) {
           getTopics().then((topics) => {
-              console.log(topics);
+              console.log(topics, "hello");
             this.setState({ topics  });
           });
         }
@@ -38,6 +39,7 @@ class PostTopicsComponent extends Component {
     render() {
       const { err } = this.state;
         if (err) {
+          console.log("ahhhhhhhhhhhhhhhhhh")
             return <Error err={err} />;
           }
       
@@ -48,9 +50,35 @@ class PostTopicsComponent extends Component {
             Add Topic
           </button>
         )}
+        <form className="form-body" onSubmit={this.handleSubmit}>
+         <label>
+                <div >
+                  <input
+                    required={true}
+                    type="text"
+                    name="slug"
+                    placeholder="name"
+                    // onChange={this.updateStateSlug}
+                  />
+                </div>
+              </label>
+              <br />
+              <label>
+                <div >
+                  <input
+                    required={true}
+                    type="text"
+                    name="description"
+                    placeholder="desc"
+                    // onChange={this.updateStateDescription}
+                  />
+                </div>
+              </label>
+              <button>Add Topic</button>
+              </form>
         </div>
            
-    
+  
         )}
 
         

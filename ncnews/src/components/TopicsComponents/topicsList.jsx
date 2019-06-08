@@ -18,9 +18,11 @@ class TopicsList extends Component {
         
         return (
             <div>
+                
+              
                 <Router>
                     <ArticlesByTopic topicsID={this.props} path="/:topic" />
-                    <PostTopicComponent path="/posttopic" importedTopics={this.state.importedTopics} currentUserLogin={this.props.currentUserLogin} />
+               
                 </Router>
                 <ul>
                     {this.state.importedTopics.map((topic) => {
@@ -29,8 +31,9 @@ class TopicsList extends Component {
                                 {topic.slug}</li>
                         </Link>
                     })}
+             
                 </ul>
-                <Link to="/posttopic"><i>Post a topic</i></Link>
+                <PostTopicComponent importedTopics={this.state.importedTopics} currentUserLogin={this.props.currentUserLogin} />
 
             </div>
         );
@@ -39,6 +42,7 @@ class TopicsList extends Component {
 
     componentDidMount() {
         getTopics(this.props).then((res) => {
+            console.log(res.data.topics, "hello")
             this.setState({ importedTopics: res.data.topics })
         }).catch((err) => {
             this.setState({ err });
