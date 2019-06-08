@@ -46,7 +46,6 @@ export default class ArticlePostForm extends Component {
               onChange={this.updateTopicInput}>
 
               {this.props.topicsArray.data.topics.map((topic, i) => {
-                  console.log(topic);
                     return <option>{topic.slug}</option>
                 })}
               

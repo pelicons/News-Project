@@ -9,16 +9,16 @@ export default class SignupComponent extends Component {
       username: null, 
       name: null, 
       avatar_url: null };
-      
+
   render() {
     const { err } = this.state;
     if (err) {
       return <Error err={err} />;
     }
     return (
-      <div className="sign-up-login-box">
+      <div >
         <h1>Sign Up</h1>
-        <form onSubmit={this.handleSubmit} className="sign-up-form-body">
+        <form onSubmit={this.handleSubmit}>
           <label>
             <div>
             
@@ -37,7 +37,7 @@ export default class SignupComponent extends Component {
                 required={true}
                 onChange={this.updateAvatar_url}
                 type="text"
-                placeholder="Avatar_Url"
+                placeholder="Avatar url"
               />
             </div>
           </label>
@@ -51,7 +51,7 @@ export default class SignupComponent extends Component {
               />
             </div>
           </label>
-          <button className="sign-up-btn">Sign Up</button>
+          <button>Sign Up</button>
         </form>
       </div>
     );
