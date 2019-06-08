@@ -39,7 +39,7 @@ class PostTopicsComponent extends Component {
     render() {
       const { err } = this.state;
         if (err) {
-          console.log("ahhhhhhhhhhhhhhhhhh")
+          console.log(err, "ahhhhhhhhhhhhhhhhhh")
             return <Error err={err} />;
           }
       
@@ -58,7 +58,7 @@ class PostTopicsComponent extends Component {
                     type="text"
                     name="slug"
                     placeholder="name"
-                    // onChange={this.updateStateSlug}
+                    onChange={this.updateStateInput}
                   />
                 </div>
               </label>
@@ -70,7 +70,7 @@ class PostTopicsComponent extends Component {
                     type="text"
                     name="description"
                     placeholder="desc"
-                    // onChange={this.updateStateDescription}
+                    onChange={this.updateStateInput}
                   />
                 </div>
               </label>
@@ -88,6 +88,10 @@ class PostTopicsComponent extends Component {
         if (bool === true) newBool = false;
         if (bool === false) newBool = true; 
         this.setState({ button: newBool });
+      }
+
+      updateStateInput = (event) => {
+        this.setState({ [event.target.name]: event.target.value });
       }
 
 

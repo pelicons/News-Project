@@ -33,9 +33,9 @@ class ArticlesList extends Component {
             })
            
         }).catch(({ response }) => {
-            const errStatus = response.status;
-            const errMessage = response.data.msg;
-            const err = { errStatus, errMessage };
+            const errstatus = response.status;
+            const errmessage = response.data.msg;
+            const err = { errstatus, errmessage };
             this.setState({ err });
 
     })
