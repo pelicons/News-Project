@@ -111,8 +111,17 @@ export const patchCommentVotes = (direction, commentid) => {
     })
 }
 
+export const getUserByUsername = username => {
+    return axios
+      .get(`${url}/users/${username}`)
+      .then(({ data: { user } }) => {
+        return user;
+      });
+  };
 
-
-//          .patch('/api/articles/1')
-//.send({ inc_votes: 5 })
+  export const postUser = newUser => {
+    return axios.post(`${url}/users`, newUser).then((user) => {
+      return user;
+    });
+  };
 

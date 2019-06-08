@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { postComment } from '../api'
-import '../style/Comments.css';
+import { postComment } from '../../api'
+import './Comments.css';
 
 class PostCommentComponent extends Component {
 

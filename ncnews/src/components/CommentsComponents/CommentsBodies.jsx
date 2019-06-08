@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { getComments } from '../api';
-import CommentCard from '../components/deleteCommentsCard'
+import { getComments } from '../../api';
+import CommentCard from './CommentsCard'
 import PostCommentComponent from './PostCommentComponent';
-import '../style/Comments.css';
+import './Comments.css';
 
 
 

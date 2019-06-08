@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { getArticle, patchVotes } from '../api';
-import CommentsBodies from '../components/CommentsBodies'
+import { getArticle, patchVotes } from '../../api';
+import CommentsBodies from '../CommentsComponents/CommentsBodies'
 
 
 

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { getTopics } from '../api';
+import { getTopics } from '../../api';
 import { Link, Router } from "@reach/router";
-import ArticlesByTopic from './ArticlesByTopic';
-import { Error } from './Error'
+import ArticlesByTopic from '../ArticleComponents/ArticlesByTopic';
+import { Error } from '../Error'
 
 
 class TopicsList extends Component {

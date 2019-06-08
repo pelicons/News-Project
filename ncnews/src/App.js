@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Router } from "@reach/router";
+import { Router, navigate } from "@reach/router";
 import Header from './components/Header';
-import ArticlesList from './components/ArticlesList';
+import ArticlesList from './components/ArticleComponents/ArticlesList'
 import LoginPage from './components/LoginPage';
 import { getUser } from './api'
-import TopicsList from './components/topicsList'
+import TopicsList from './components/TopicsComponents/topicsList'
 import { Error } from './components/Error'
-
+import SignupComponent from './components/signupComponent';
 
 
 class App extends Component {
@@ -24,12 +24,14 @@ class App extends Component {
     return (
       <div>
 
-        <Header />
+        <Header currentUserLogin=
+        {this.state.currentUserLogin} />
         <LoginPage changeLogin={this.changeLogin} currentUserLogin={this.state.currentUserLogin} changeLogin={this.changeLogin} />
         <Router>
           <Error default /> 
           <ArticlesList path="/*" currentUserLogin={this.state.currentUserLogin} />
           <TopicsList path="/topics/*" />
+          <SignupComponent updateAppUser={this.updateAppUser} path="/sign-up" />
         </Router>
 
 
@@ -37,13 +39,13 @@ class App extends Component {
     );
   }
 
-  changeLogin = (input) => {
+  changeLogin = (event) => {
 
-    if (!input) //is null set in LoginPage if current login state !== current user value 
+    if (!event) //is null set in LoginPage if current login state !== current user value 
     {
       return this.setState({ currentUserLogin: null })
     } else {
-      getUser(input).then((res) => {
+      getUser(event).then((res) => {
         if (res) {
           this.setState({ currentUserLogin: res.username })
 
@@ -54,6 +56,11 @@ class App extends Component {
       })
     }
   }
+  updateAppUser = user => {
+    this.setState({ user });
+    localStorage.setItem('user', JSON.stringify(user));
+    navigate(`/articles`);
+  };
 }
 
 export default App;

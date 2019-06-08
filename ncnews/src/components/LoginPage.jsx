@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import '../style/Login.css'
 import { Error } from './Error'
-import Button from 'react-bootstrap/Button';
+// import Button from 'react-bootstrap/Button';
 
 class LoginPage extends Component {
     state = {
-        userInput: ''
+        userInput: '',
+        err: null
     }
 
     render() {

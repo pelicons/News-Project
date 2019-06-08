@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { getArticlesByTopics } from '../api';
 import { Link } from "@reach/router";
-import SortComponent from '../components/SortComponent';
-import { getSortedTopicsByArticle } from '../api'
+import SortComponent from '../SortComponent';
+import { getSortedTopicsByArticle, getArticlesByTopics } from '../../api'
 
 
 

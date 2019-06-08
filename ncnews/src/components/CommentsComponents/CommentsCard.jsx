@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { deleteComment, patchCommentVotes } from '../api';
-import '../style/Comments.css';
-import { Button, ButtonToolBar } from 'react-bootstrap/Button';
+import { deleteComment, patchCommentVotes } from '../../api';
+import './Comments.css';
+// import { Button, ButtonToolBar } from 'react-bootstrap/Button';
 
 // Button breaks app
 

@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import axios from 'axios';
-import { Link, Router, navigate } from "@reach/router";
+import { Link, Router  } from "@reach/router";
 import SingleArticle from './SingleArticle';
-import SortComponent from '../components/SortComponent';
-import { getSortedArticles, getTotalArticleCount, getArticles } from '../api';
-import '../style/ArticlesList.css';
+import SortComponent from '../SortComponent';
+import { getSortedArticles,  getArticles } from '../../api';
+import './ArticlesList.css';
 
 class ArticlesList extends Component {
     state = {
@@ -23,18 +22,15 @@ class ArticlesList extends Component {
             this.setState({
                 articlesImported: res.data.articles,
                 totalcount: res.data.totalcount
-            }).catch(({ response }) => {
-                const errStatus = response.status;
-                const errMessage = response.data.msg;
-                const err = { errStatus, errMessage };
-                this.setState({ err });
-              });
-            // navigate(`/`);
+            })
+           
+        }).catch(({ response }) => {
+            const errStatus = response.status;
+            const errMessage = response.data.msg;
+            const err = { errStatus, errMessage };
+            this.setState({ err });
 
-            console.log(res);
-        })
-
-
+    })
 
 
     }
@@ -50,13 +46,13 @@ class ArticlesList extends Component {
                 this.setState({
                     articlesImported: res.data.articles,
                     totalcount: res.data.totalcount
-                }).catch(({ response }) => {
-                    console.log(response);
+                })
                     // const errStatus = response.status;
                     // const errMessage = response.data.msg;
                     // const err = { errStatus, errMessage };
                     // this.setState({ err });
-                  });
+                  }).catch(( response ) => {
+                    console.log(response);
             })
         }
 
