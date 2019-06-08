@@ -3,13 +3,12 @@ import axios from 'axios';
 
 const url = `https://mynewsapp-matthew.herokuapp.com/api`;
 
-export const getArticles = () => {
-    return axios.get(`${url}/articles`).then((res) => {
-        console.log(res);
-        return res
-    })
-
-}
+export const getArticles = params => {
+    return axios.get(`${url}/articles`, { params })
+      .then((articles) => {
+        return articles;
+      });
+  };
 
 export const getUser = (specificUser) => {
     return axios.get(`${url}/users/${specificUser}`).then(({ data: { user } }) => {

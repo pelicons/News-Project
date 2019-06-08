@@ -9,23 +9,12 @@ import '../style/ArticlesList.css';
 class ArticlesList extends Component {
     state = {
         articlesImported: [],
-        totalcount: 0,  //currently functional gets set on initial articles list render
-        p: 1
+        totalcount: 0,  
+        page: 1,
+        err: null
     };
 
-    // const maxPages = getTotalArticleCount();
-
-    // changePage = pageNum => {
-
-    // }
-
-    // changePage = direction => {
-
-    // }
-
-    // componentDidUpdate(prevProps, prevState) {
-
-    // }
+ 
 
     componentDidMount() {
 
@@ -34,7 +23,12 @@ class ArticlesList extends Component {
             this.setState({
                 articlesImported: res.data.articles,
                 totalcount: res.data.totalcount
-            })
+            }).catch(({ response }) => {
+                const errStatus = response.status;
+                const errMessage = response.data.msg;
+                const err = { errStatus, errMessage };
+                this.setState({ err });
+              });
             // navigate(`/`);
 
             console.log(res);
@@ -47,18 +41,22 @@ class ArticlesList extends Component {
 
 
     componentDidUpdate(prevProps, prevState) {
-        if (prevState.articlesImported[0] === this.state.articlesImported[0]) {
+        if (prevState.page !== this.state.page) {
             //confused have to click twice
             // {() => { this.updateSortState }} on button?
             //have to set the state on click
-            getArticles().then((res) => {
+            getArticles({p: this.state.page}).then((res) => {
                 console.log(res);
                 this.setState({
                     articlesImported: res.data.articles,
                     totalcount: res.data.totalcount
-                })
-
-
+                }).catch(({ response }) => {
+                    console.log(response);
+                    // const errStatus = response.status;
+                    // const errMessage = response.data.msg;
+                    // const err = { errStatus, errMessage };
+                    // this.setState({ err });
+                  });
             })
         }
 
@@ -69,7 +67,7 @@ class ArticlesList extends Component {
 
     render() {
 
-
+        const maxPages = Math.ceil(this.state.totalcount / 10);
         return (
             <div>
                 <Router>
@@ -96,7 +94,22 @@ class ArticlesList extends Component {
                         )
                     })
                 }
-
+      
+          <button
+            disabled={this.state.page === 1}
+            onClick={() => this.changePage(-1)}
+            id="left"
+          >
+            <i className="style" />
+          </button>
+          <button
+            disabled={this.state.page === maxPages}
+            onClick={() => this.changePage(1)}
+            id="right"
+          >
+            <i className="style" />
+          </button>
+        
             </div >
         );
     }
@@ -107,6 +120,13 @@ class ArticlesList extends Component {
             console.log(res.data.articles, "article list")
         })
     }
+    changePage = dir => {
+        this.setState(prevState => {
+          return { page: prevState.page + dir };
+        });
+      };
+    
+  
 }
 
 export default ArticlesList;
