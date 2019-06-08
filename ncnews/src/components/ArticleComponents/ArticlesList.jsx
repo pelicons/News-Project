@@ -5,6 +5,7 @@ import SortComponent from '../SortComponent';
 import { getSortedArticles,  getArticles, postArticle, getTopics } from '../../api';
 import './ArticlesList.css';
 import ArticlePostForm from './ArticlePostForm';
+import TopicsList from '../TopicsComponents/topicsList'
 
 class ArticlesList extends Component {
     state = {
@@ -71,14 +72,17 @@ class ArticlesList extends Component {
     render() {
 
         const maxPages = Math.ceil(this.state.totalcount / 10);
-        console.log(this.state.topicsArray)
+   
         return (
             <div>
       
                 <Router>
-                    <SingleArticle path="/:id" currentUserLogin={this.props.currentUserLogin} />
+                <TopicsList path="/topics/*" />
+                <SingleArticle path="/:id" currentUserLogin={this.props.currentUserLogin} />
                 </Router>
                 <SortComponent SortedArticles={this.SortedArticles} />
+                <br></br>
+                <Link to="/topics"><i>List of Topics</i></Link>
                 <div>
 
         {this.props.currentUserLogin && (

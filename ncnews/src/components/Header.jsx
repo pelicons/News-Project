@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "@reach/router";
 import '../style/Header.css'
 
+
 const Header = (props) => {
     return (
         <div id="header">
