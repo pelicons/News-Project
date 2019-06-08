@@ -41,7 +41,7 @@ class TopicsList extends Component {
 
 
     componentDidMount() {
-        getTopics(this.props).then((res) => {
+        getTopics().then((res) => {
             console.log(res.data.topics, "hello")
             this.setState({ importedTopics: res.data.topics })
         }).catch((err) => {

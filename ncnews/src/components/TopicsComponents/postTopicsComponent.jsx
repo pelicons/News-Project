@@ -18,13 +18,14 @@ class PostTopicsComponent extends Component {
       };
 
       componentDidMount() {
+        console.log(this.props.importedTopics);
+        console.log(this.props.importedTopics);
+        console.log(this.props.importedTopics);
+        console.log(this.props.importedTopics);
+        console.log(this.props.importedTopics);
+        
             this.setState({ topics: this.props.importedTopics })
-            // .catch(({ response }) => {
-          //   const errorstatus = response.status;
-          //   const errormessage = response.data.msg;
-          //   const err = { errorstatus, errormessage };
-          //   this.setState({ err });
-          // });
+    
         }
 
       componentDidUpdate(prevProps, prevState) {
@@ -35,8 +36,10 @@ class PostTopicsComponent extends Component {
           });
         }
       }
+      
 
     render() {
+      console.log(this.props, "ahhhhhhhhhhhhhh1");
       const { err } = this.state;
         if (err) {
           console.log(err, "ahhhhhhhhhhhhhhhhhh")

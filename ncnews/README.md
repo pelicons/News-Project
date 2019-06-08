@@ -26,8 +26,6 @@ Logged in users can:
 
 Logout of the site
 Post a new comment to an existing article.
-Post an article.
-Post a topic.
 Vote on an article.
 Vote on a comment.
 Delete their own comments.
