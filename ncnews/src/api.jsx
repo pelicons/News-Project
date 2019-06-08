@@ -125,3 +125,11 @@ export const getUserByUsername = username => {
     });
   };
 
+  export const postArticle = newArticle => {
+    return axios
+      .post(`${url}/articles`, newArticle)
+      .then((article) => {
+        return article;
+      });
+  };
+

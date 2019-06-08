@@ -24,6 +24,9 @@ class SingleArticle extends Component {
                 {/* <button disabled={voteChange === 1} onClick={() => this.handleVote(1)}></button> */}
                 {this.state.individualArticle.body}
                 <br></br>
+                {this.state.individualArticle.author}
+                <br></br>
+                
                 {this.props.currentUserLogin &&
                     <div>
                         <button disabled={this.state.votes === 1} onClick={() => { this.HandleVote(1) }}>UP<br></br><b>{this.state.individualArticle.votes + 1}</b></button>
