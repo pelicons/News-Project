@@ -135,9 +135,13 @@ export const getUserByUsername = username => {
 
   
 export const postNewTopic = newTopic => {
+    console.log(newTopic);
     return axios
       .post(`${url}/topics`, newTopic)
+    
       .then((newTopic) => {
+          console.log(newTopic)
+          console.log(newTopic)
           console.log(newTopic)
         return newTopic;
       });
