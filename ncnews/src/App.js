@@ -30,7 +30,7 @@ class App extends Component {
         <Router>
           <Error default /> 
           <ArticlesList path="/*" currentUserLogin={this.state.currentUserLogin} />
-          <TopicsList path="/topics/*" />
+          <TopicsList path="/topics/*" currentUserLogin={this.state.currentUserLogin} />
           <SignupComponent updateAppUser={this.updateAppUser} path="/sign-up" />
         </Router>
 

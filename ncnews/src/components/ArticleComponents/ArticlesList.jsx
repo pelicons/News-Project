@@ -129,17 +129,13 @@ class ArticlesList extends Component {
           <button
             disabled={this.state.page === 1}
             onClick={() => this.changePage(-1)}
-            id="left"
-          >
-         
+            id="left"class="previous">Previous &laquo;>
           </button>
           <button
             disabled={this.state.page === maxPages}
             onClick={() => this.changePage(1)}
-            id="right"
-          >
-            
-          </button>
+            id="right" class="next">Next &raquo;>
+            </button>
         
             </div >
         );
@@ -158,9 +154,13 @@ class ArticlesList extends Component {
       };
       showArticleForm = bool => {
         let newBool = bool;
-        bool ? (newBool = false) : (newBool = true);
+        if (bool === true) newBool = false;
+        if (bool === false) newBool = true; 
         this.setState({ button: newBool });
       };
+
+         
+   
 
       handleSubmit = postState => {
         const { titleInput, bodyInput, topicInput } = postState;

@@ -133,3 +133,12 @@ export const getUserByUsername = username => {
       });
   };
 
+  
+export const postNewTopic = newTopic => {
+    return axios
+      .post(`${url}/topics`, newTopic)
+      .then((newTopic) => {
+          console.log(newTopic)
+        return newTopic;
+      });
+  };

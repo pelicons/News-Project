@@ -8,7 +8,7 @@ class SortComponent extends Component {
     }
 
 
-    render() {
+    render() { //{() => this.showTopicForm(this.state.button)}
         return (
             <div>
                 <button value="created_at" onClick={this.updateSortState}>Created At</button>

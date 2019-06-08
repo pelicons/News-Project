@@ -3,7 +3,7 @@ import { getTopics } from '../../api';
 import { Link, Router } from "@reach/router";
 import ArticlesByTopic from '../ArticleComponents/ArticlesByTopic';
 import { Error } from '../Error'
-
+import PostTopicComponent from './postTopicsComponent'
 
 class TopicsList extends Component {
     state = {
@@ -15,11 +15,12 @@ class TopicsList extends Component {
     render() {
         const { err, currentUserLogin } = this.state;
         if (err) return <Error />
-        console.log(err);
+        
         return (
             <div>
                 <Router>
                     <ArticlesByTopic topicsID={this.props} path="/:topic" />
+                    <PostTopicComponent path="/posttopic" importedTopics={this.state.importedTopics} currentUserLogin={this.props.currentUserLogin} />
                 </Router>
                 <ul>
                     {this.state.importedTopics.map((topic) => {
@@ -29,6 +30,7 @@ class TopicsList extends Component {
                         </Link>
                     })}
                 </ul>
+                <Link to="/posttopic"><i>Post a topic</i></Link>
 
             </div>
         );
