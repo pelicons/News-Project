@@ -18,18 +18,14 @@ class PostTopicsComponent extends Component {
       };
 
       componentDidMount() {
-        console.log(this.props.importedTopics);
      
-        
             this.setState({ topics: this.props.importedTopics })
-    
+       // perhaps an unnecessary set state, can do all this functionality with props and topicslist 
         }
 
       componentDidUpdate(prevProps, prevState) {
         if (prevState.topics.length !== this.state.topics.length) {
           getTopics().then((topics) => {
-              console.log(topics, "hello");
-              console.log(topics);
            this.props.updateTopicsWhenPosted(topics.data.topics);
           // }).then((topics) => {
           //   this.props.updateTopicsWhenPosted(this.state.topics)
@@ -48,12 +44,15 @@ class PostTopicsComponent extends Component {
           }
       
         return (
-            <div>
-                  {this.props.currentUserLogin !== null && (
+      
+           
+                  /* {this.props.currentUserLogin !== null && (
           <button onClick={() => this.showTopicForm(this.state.button)}>
             Add Topic
-          </button>
-        )}
+          </button> */
+        
+        <div>
+        {this.props.currentUserLogin !== null && (
         <form className="form-body" onSubmit={this.handleSubmit}>
          <label>
                 <div >
@@ -80,10 +79,13 @@ class PostTopicsComponent extends Component {
               </label>
               <button>Post Topic</button>
               </form>
-        </div>
-           
-  
         )}
+              </div>
+          
+          )
+        }
+  
+          
 
         
     
