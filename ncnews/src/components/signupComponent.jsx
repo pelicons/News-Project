@@ -70,9 +70,9 @@ export default class SignupComponent extends Component {
         }
       })
       .catch(({ response }) => {
-        const errStatus = response.status;
-        const errMessage = response.data.msg;
-        const err = { errStatus, errMessage };
+        const errorstatus = response.status;
+        const errormessage = response.data.msg;
+        const err = { errorstatus, errormessage };
         this.setState({ err });
       });
   };
