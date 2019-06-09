@@ -14,18 +14,25 @@ class SingleArticle extends Component {
     }
     render() {
 
-
+  console.log(this.state.individualArticle)
 
         return (
 
             <div>
-                {this.state.individualArticle.title}
+                Title:{this.state.individualArticle.title}
                 <br></br>
                 {/* <button disabled={voteChange === 1} onClick={() => this.handleVote(1)}></button> */}
-                {this.state.individualArticle.body}
+               Body: {this.state.individualArticle.body}
                 <br></br>
-                {this.state.individualArticle.author}
+                Author:{this.state.individualArticle.author}
                 <br></br>
+                Created_at:{this.state.individualArticle.created_at}
+                <br></br>
+                Topic:{this.state.individualArticle.topic}
+                <br></br>
+                Votes:{this.state.individualArticle.votes}
+                <br></br>
+
                 
                 {this.props.currentUserLogin &&
                     <div>

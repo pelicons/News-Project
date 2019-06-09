@@ -33,11 +33,13 @@ class ArticlesByTopic extends Component {
                         console.log(article);
                         return <Link to={`/${article.article_id}`}>
                             <li key={article._id}>
-                                {article.title}
+                                {article.title} 
                             </li>
                         </Link>
+                        
                     })}
                 </ul>
+                <br></br>
             </div>
         );
     }

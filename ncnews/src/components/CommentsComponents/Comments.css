@@ -1,14 +1,14 @@
 #commentDiv {
-    background-color: palegoldenrod;
-    border: 5px blue solid;
+    background-color:white;
+    border: 5px grey;
 }
 
 .comment{
-    border: 5px blue solid;
+    border: 5px grey;
 }
 
 .singleComment {
-    border: 5px blue solid;
+    border: 5px grey;
     
 }
 
@@ -16,3 +16,12 @@
     transform: rotate(-135deg);
     -webkit-transform: rotate(-135deg);
   }
+
+h2 {
+    
+    border-style: dashed;
+    border-width: 3px;
+    border-left-width: 10px;
+    border-right-width: 10px;
+    border-color: grey;
+}

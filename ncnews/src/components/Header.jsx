@@ -15,11 +15,12 @@ const Header = (props) => {
        
               {!props.currentUserLogin && (
                <div>
-                  <Link to="/login" id="navbar-element">
+                 <b>You aren't logged in, maybe</b>
+                  {/* <Link to="/login" id="navbar-element">
                     <h4>Login</h4>
-                  </Link>
+                  </Link> */}
                   <Link to="/sign-up" id="navbar-element">
-                    <h4>Sign Up</h4>
+                  <b> <h4>sign up...</h4></b>
                   </Link>
                 </div>
               )}

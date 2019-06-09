@@ -46,7 +46,7 @@ class DeleteCommentCard extends Component {
                 <li>{this.props.comment.comment_id} comment id</li>
                 <li>{this.props.comment.created_at} created at</li>
                 <li>{this.props.comment.votes + this.state.votes} votes</li>
-                <h1>THIS IS A LINE</h1>
+                <h2></h2>
 
             </ul >
 
