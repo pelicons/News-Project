@@ -55,7 +55,8 @@ class SingleArticle extends Component {
     componentDidUpdate(prevProps, prevState) {
         if (this.props.id !== prevProps.id) {
             getArticle(this.props.id).then((res) => {
-                this.setState({ individualArticle: res.data.article })
+                this.setState({ votes: 0,
+                    individualArticle: res.data.article })
 
             })
         }
