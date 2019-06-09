@@ -22,7 +22,6 @@ class TopicsList extends Component {
               
                 <Router>
                     <ArticlesByTopic topicsID={this.props} path="/:topic" />
-               
                 </Router>
                 <ul>
                     {this.state.importedTopics.map((topic) => {

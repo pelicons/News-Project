@@ -21,14 +21,20 @@ class SortComponent extends Component {
     }
 
     updateSortState = (event) => {
-
         this.setState({ sort_by: event.target.value })
-
-
-        this.props.SortedArticles(this.state.sort_by)
-
-
     }
+
+
+    componentDidUpdate(prevProps, prevState) {
+        if (this.state.sort_by !== prevState.sort_by) {
+                    
+        this.props.SortedArticles(this.state.sort_by)
+                }
+    }
+    
+
+
+    
 }
 
 
