@@ -29,7 +29,8 @@ class PostTopicsComponent extends Component {
         if (prevState.topics.length !== this.state.topics.length) {
           getTopics().then((topics) => {
               console.log(topics, "hello");
-            this.setState({ topics  });
+              console.log(topics);
+           this.props.updateTopicsWhenPosted(topics.data.topics);
           // }).then((topics) => {
           //   this.props.updateTopicsWhenPosted(this.state.topics)
           
