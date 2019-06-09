@@ -8,7 +8,8 @@ export default class SignupComponent extends Component {
   state = { 
       username: null, 
       name: null, 
-      avatar_url: null };
+      avatar_url: null,
+    err: null };
 
   render() {
     const { err } = this.state;
@@ -32,7 +33,7 @@ export default class SignupComponent extends Component {
           </label>
           <label>
 
-            <div id="sign-up-textbox">
+            <div >
               <input
                 required={true}
                 onChange={this.updateAvatar_url}

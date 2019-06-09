@@ -19,10 +19,7 @@ class PostTopicsComponent extends Component {
 
       componentDidMount() {
         console.log(this.props.importedTopics);
-        console.log(this.props.importedTopics);
-        console.log(this.props.importedTopics);
-        console.log(this.props.importedTopics);
-        console.log(this.props.importedTopics);
+     
         
             this.setState({ topics: this.props.importedTopics })
     
@@ -33,7 +30,10 @@ class PostTopicsComponent extends Component {
           getTopics().then((topics) => {
               console.log(topics, "hello");
             this.setState({ topics  });
-          });
+          // }).then((topics) => {
+          //   this.props.updateTopicsWhenPosted(this.state.topics)
+          
+          })
         }
       }
       
@@ -77,7 +77,7 @@ class PostTopicsComponent extends Component {
                   />
                 </div>
               </label>
-              <button>Add Topic</button>
+              <button>Post Topic</button>
               </form>
         </div>
            

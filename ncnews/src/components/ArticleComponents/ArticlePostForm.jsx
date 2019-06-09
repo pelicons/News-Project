@@ -22,7 +22,8 @@ export default class ArticlePostForm extends Component {
             <div >
               <input
                 required={true}
-                onChange={this.updateTitleInput}
+                name="titleInput"
+                onChange={this.updateInputs}
                 type="text"
                 placeholder="title"
               />
@@ -33,7 +34,8 @@ export default class ArticlePostForm extends Component {
             <div>
               <textarea
                 required={true}
-                onChange={this.updateBodyInput}
+                name="bodyInput"
+                onChange={this.updateInputs}
                 type="text"
                 placeholder="body"
               />
@@ -43,7 +45,8 @@ export default class ArticlePostForm extends Component {
           <label>
             <select
               required={true}
-              onChange={this.updateTopicInput}>
+              name="topicInput"
+              onChange={this.updateInputs}>
 
               {this.props.topicsArray.data.topics.map((topic, i) => {
                     return <option>{topic.slug}</option>
@@ -58,15 +61,8 @@ export default class ArticlePostForm extends Component {
       </div>
     );
   }
-  updateTitleInput = event => {
-    this.setState({ titleInput: event.target.value });
+  updateInputs= event => {
+    this.setState({ [event.target.name]: event.target.value });
   };
 
-  updateBodyInput = event => {
-    this.setState({ bodyInput: event.target.value });
-  };
-
-  updateTopicInput = event => {
-    this.setState({ topicInput: event.target.value });
-  };
 }

@@ -33,7 +33,7 @@ class TopicsList extends Component {
                     })}
              
                 </ul>
-                <PostTopicComponent importedTopics={this.state.importedTopics} currentUserLogin={this.props.currentUserLogin} />
+                <PostTopicComponent importedTopics={this.state.importedTopics} currentUserLogin={this.props.currentUserLogin} updateTopicsWhenPosted={this.updateTopicsWhenPosted} />
 
             </div>
         );
@@ -47,6 +47,13 @@ class TopicsList extends Component {
         }).catch((err) => {
             this.setState({ err });
         })
+    }
+   
+
+    
+    updateTopicsWhenPosted = (newTopicsArray) => {
+      this.setState({ importedTopics: newTopicsArray })
+
     }
 }
 
