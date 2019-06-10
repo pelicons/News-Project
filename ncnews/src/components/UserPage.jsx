@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { getArticlesByUser } from '../api';
+import { Link } from "@reach/router";
 
 class UserPage extends Component {
     state = {
@@ -22,7 +23,13 @@ class UserPage extends Component {
                 <br></br>
                 <b>Articles By this user:</b>
                 <div>{this.state.articlesByUser.map((article) => {
-                    return <h1>{article.title}</h1>
+                    return <Link to={`/${article.article_id}`}>
+                        <b>{article.title}</b>
+                        <br>
+                        </br>
+
+                    </Link>
+
                 })}
                 </div>
 
@@ -31,29 +38,31 @@ class UserPage extends Component {
     }
 
     componentDidMount() {
-        console.log(this.state.articlesByUser);
+        
+        
         getArticlesByUser(this.props.userinfo.currentUserLogin).then((res) => {
 
             this.setState({
 
-                articlesByUser: res.data.articles
+                articlesByUser: res.data.articles,
+                currentUserLogin: res.data.username
             })
+        
         })
+    
     }
+}
 
+     
+    //  componentDidUpdate(prevProps, prevState) {
 
-    // }
-    // componentDidUpdate(prevProps, prevState) {
-
-    //     if (this.state.articlesByUser.length !== prevState.articlesByUser.length) {
-    //         getArticlesByUser(this.props.userinfo.currentUserLogin).then((res) => {
-    //             console.log(res, "updateres");
-    //             this.setState({ articlesByUser: res.data.articles })
-    //         })
+    //      if (this.state.articlesByUser.length !== prevState.articlesByUser.length) {
+    //          getArticlesByUser(this.props.userinfo.currentUserLogin).then((res) => {
+    //              console.log(res, "updateres");
+    //              this.setState({ articlesByUser: res.data.articles })
+    //          })
+    //      }
     //     }
     // }
-
-}
-// // }
 
 export default UserPage;

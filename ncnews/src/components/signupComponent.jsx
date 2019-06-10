@@ -27,9 +27,10 @@ export default class SignupComponent extends Component {
 
               <input
                 required={true}
-                onChange={this.updateUsernameInput}
+                onChange={this.updateInput}
                 type="text"
                 placeholder="Username"
+                name="username"
               />
             </div>
           </label>
@@ -37,9 +38,10 @@ export default class SignupComponent extends Component {
             <div class="form-row">
               <input
                 required={true}
-                onChange={this.updateAvatar_url}
+                onChange={this.updateInput}
                 type="text"
                 placeholder="Avatar url"
+                name="avatar_url"
               />
             </div>
           </label>
@@ -47,9 +49,10 @@ export default class SignupComponent extends Component {
             <div class="form-row">
               <input
                 required={true}
-                onChange={this.updateNameInput}
+                onChange={this.updateInput}
                 type="text"
                 placeholder="Name"
+                name="name"
               />
             </div>
           </label>
@@ -78,15 +81,8 @@ export default class SignupComponent extends Component {
       });
   };
 
-  updateUsernameInput = event => {
-    this.setState({ username: event.target.value });
+  updateInput = event => {
+    this.setState({ [event.target.name]: event.target.value });
   };
 
-  updateNameInput = event => {
-    this.setState({ name: event.target.value });
-  };
-
-  updateAvatar_url = event => {
-    this.setState({ avatar_url: event.target.value });
-  };
 }
