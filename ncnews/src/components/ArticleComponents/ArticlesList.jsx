@@ -121,6 +121,7 @@ class ArticlesList extends Component {
                                     <br></br>
                                     <li>{article.votes} Votes</li>
                                     <li>{article.author}</li>
+                                    <li>{article.created_at}</li>
 
 
                                 </ul>

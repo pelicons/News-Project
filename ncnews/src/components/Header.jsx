@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "@reach/router";
 import '../style/Header.css'
+import logo from '../components/logo.png';
+
 
 
 const Header = (props) => {
@@ -10,13 +12,14 @@ const Header = (props) => {
   return (
     <div id="header">
       <i id="date-element">{date}</i>
-      <Link to="/"><b>NC NEWS</b></Link>
+      <Link to="/"><b id="bold-title">NC News</b></Link>
       <br>
       </br>
       <br>
 
       </br>
       <Link to="/topics"><i>List of Topics</i></Link>
+      <img src={logo} width="50" height="50" alt="nclogo" id="main-logo"></img>
 
       {!props.currentUserLogin && (
         <div>
@@ -25,7 +28,7 @@ const Header = (props) => {
           <Link to="/sign-up" id="navbar-element">
             <b> <h4>sign up...</h4></b>
           </Link>
-          <img src="./logo.JPG" alt="nclogo"></img>
+
         </div>
       )}
     </div>

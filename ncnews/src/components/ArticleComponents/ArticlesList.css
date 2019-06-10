@@ -8,30 +8,29 @@ a {
     padding: 8px 16px;
   }
   
-  a:hover {
-    background-color: #ddd;
-    color: black;
-  }
+ 
   
-  .previous {
+  /* .previous {
+    display: flex;
     background-color: #f1f1f1;
     color: black;
-  }
+  } */
   
-  .next {
+  /* .next {
+    display: flex;
     background-color:grey;
     color: white;
   }
-  
+   */
   .round {
-    border-radius: 50%;
+    border-radius: 10%;
   }
 
   .main-column {
     max-width: 1200px;
     margin: 20px auto 0 auto;
     line-height: 1.65;
-    padding: 20px 30px;
+    padding: 10px 250px;
     /* display: flex; */
   }
 
