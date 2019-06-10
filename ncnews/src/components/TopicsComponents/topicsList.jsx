@@ -13,13 +13,13 @@ class TopicsList extends Component {
 
 
     render() {
-        const { err, currentUserLogin } = this.state;
-        if (err) return <Error />
-        
+        const { err } = this.state;
+        if (err) return <Error err={err} />
+
         return (
             <div>
-                
-              
+
+
                 <Router>
                     <ArticlesByTopic topicsID={this.props} path="/:topic" />
                 </Router>
@@ -30,7 +30,7 @@ class TopicsList extends Component {
                                 {topic.slug}</li>
                         </Link>
                     })}
-             
+
                 </ul>
                 <PostTopicComponent importedTopics={this.state.importedTopics} currentUserLogin={this.props.currentUserLogin} updateTopicsWhenPosted={this.updateTopicsWhenPosted} />
 
@@ -47,11 +47,11 @@ class TopicsList extends Component {
             this.setState({ err });
         })
     }
-   
 
-    
+
+
     updateTopicsWhenPosted = (newTopicsArray) => {
-      this.setState({ importedTopics: newTopicsArray })
+        this.setState({ importedTopics: newTopicsArray })
 
     }
 }

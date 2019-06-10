@@ -57,7 +57,7 @@ class App extends Component {
     }
   }
   updateAppUser = user => {
-    this.setState({ user });
+    this.setState({ currentUserLogin: user });
     localStorage.setItem('user', JSON.stringify(user));
     navigate(`/articles`);
   };

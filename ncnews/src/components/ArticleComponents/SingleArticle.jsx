@@ -14,7 +14,7 @@ class SingleArticle extends Component {
     }
     render() {
 
-  console.log(this.state.individualArticle)
+        console.log(this.state.individualArticle)
 
         return (
 
@@ -22,7 +22,7 @@ class SingleArticle extends Component {
                 Title:{this.state.individualArticle.title}
                 <br></br>
                 {/* <button disabled={voteChange === 1} onClick={() => this.handleVote(1)}></button> */}
-               Body: {this.state.individualArticle.body}
+                Body: {this.state.individualArticle.body}
                 <br></br>
                 Author:{this.state.individualArticle.author}
                 <br></br>
@@ -33,7 +33,7 @@ class SingleArticle extends Component {
                 Votes:{this.state.individualArticle.votes}
                 <br></br>
 
-                
+
                 {this.props.currentUserLogin &&
                     <div>
                         <button disabled={this.state.votes === 1} onClick={() => { this.HandleVote(1) }}>UP<br></br><b>{this.state.individualArticle.votes + 1}</b></button>
@@ -43,13 +43,13 @@ class SingleArticle extends Component {
                 <br></br>
                 {this.state.individualArticle.comment_count}
                 <br></br>
-                <CommentsBodies id={this.props.id} currentUserLogin={this.props.currentUserLogin} />
-                <br></br>
+
                 <div>
 
 
                 </div>
-
+                <CommentsBodies id={this.props.id} currentUserLogin={this.props.currentUserLogin} />
+                <br></br>
             </div>
         );
     }
@@ -62,8 +62,10 @@ class SingleArticle extends Component {
     componentDidUpdate(prevProps, prevState) {
         if (this.props.id !== prevProps.id) {
             getArticle(this.props.id).then((res) => {
-                this.setState({ votes: 0,
-                    individualArticle: res.data.article })
+                this.setState({
+                    votes: 0,
+                    individualArticle: res.data.article
+                })
 
             })
         }
