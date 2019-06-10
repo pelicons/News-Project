@@ -6,6 +6,7 @@ import { getSortedArticles,  getArticles, postArticle, getTopics } from '../../a
 import './ArticlesList.css';
 import ArticlePostForm from './ArticlePostForm';
 import TopicsList from '../TopicsComponents/topicsList'
+import { Error } from '../Error';
 
 class ArticlesList extends Component {
     state = {
@@ -46,21 +47,19 @@ class ArticlesList extends Component {
 
     componentDidUpdate(prevProps, prevState) {
         if (prevState.page !== this.state.page) {
-            //confused have to click twice
-            // {() => { this.updateSortState }} on button?
-            //have to set the state on click
+           
             getArticles({p: this.state.page}).then((res) => {
                 console.log(res);
                 this.setState({
                     articlesImported: res.data.articles,
                     totalcount: res.data.totalcount
                 })
-                    // const errStatus = response.status;
-                    // const errMessage = response.data.msg;
-                    // const err = { errStatus, errMessage };
-                    // this.setState({ err });
+                   
                   }).catch(( response ) => {
-                    console.log(response);
+                    const errstatus = response.status;
+            const errmessage = response.data.msg;
+            const err = { errstatus, errmessage };
+                    this.setState({ err });
             })
         }
 
@@ -70,6 +69,10 @@ class ArticlesList extends Component {
     }
 
     render() {
+      const { err } = this.state;
+    if (err) {
+      return <Error err={err} />;
+    }
 
         const maxPages = Math.ceil(this.state.totalcount / 10);
    

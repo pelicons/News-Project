@@ -14,7 +14,9 @@ class TopicsList extends Component {
 
     render() {
         const { err } = this.state;
-        if (err) return <Error err={err} />
+        if (err) {
+          return <Error err={err} />;
+        }
 
         return (
             <div>

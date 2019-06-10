@@ -25,10 +25,10 @@ class App extends Component {
       <div>
 
         <Header currentUserLogin=
-        {this.state.currentUserLogin} />
+          {this.state.currentUserLogin} />
         <LoginPage changeLogin={this.changeLogin} currentUserLogin={this.state.currentUserLogin} changeLogin={this.changeLogin} />
         <Router>
-          <Error default /> 
+          <Error default />
           <ArticlesList path="/*" currentUserLogin={this.state.currentUserLogin} />
           <TopicsList path="/topics/*" currentUserLogin={this.state.currentUserLogin} />
           <SignupComponent updateAppUser={this.updateAppUser} path="/sign-up" />
@@ -59,7 +59,7 @@ class App extends Component {
   updateAppUser = user => {
     this.setState({ currentUserLogin: user });
     localStorage.setItem('user', JSON.stringify(user));
-    navigate(`/articles`);
+    navigate(`/`);
   };
 }
 

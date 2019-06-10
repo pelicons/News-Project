@@ -7,8 +7,8 @@ import './Comments.css';
 
 
 
-class DeleteCommentCard extends Component {
-
+class CommentCard extends Component {
+    //no matter what you call this class above commentsbodies uses it as if it were called CommentsCard?
     state = {
         votes: 0,
 
@@ -90,4 +90,4 @@ class DeleteCommentCard extends Component {
 
 
 
-export default DeleteCommentCard;
+export default CommentCard;
