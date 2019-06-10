@@ -43,11 +43,6 @@ class PostTopicsComponent extends Component {
     return (
 
 
-      /* {this.props.currentUserLogin !== null && (
-<button onClick={() => this.showTopicForm(this.state.button)}>
-Add Topic
-</button> */
-
       <div>
         {this.props.currentUserLogin !== null && (
           <form className="form-body" onSubmit={this.handleSubmit}>

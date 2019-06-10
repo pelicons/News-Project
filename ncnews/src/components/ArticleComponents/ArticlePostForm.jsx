@@ -8,7 +8,7 @@ export default class ArticlePostForm extends Component {
     err: null
   };
   render() {
-    console.log(this.props.topicsArray);
+   
     return (
       <div >
         <form

@@ -11,9 +11,11 @@ class SortComponent extends Component {
     render() { //{() => this.showTopicForm(this.state.button)}
         return (
             <div>
-                <button value="created_at" onClick={this.updateSortState}>Created At</button>
-                <button value="votes" onClick={ this.updateSortState }>Votes</button>
-                <button value="comment_count" onClick={this.updateSortState}>Comment Count</button>
+                <select onChange={this.updateSortState}>
+                    <option value="created_at" >Created At</option>
+                    <option value="votes" >Votes</option>
+                    <option value="comment_count" >Comment Count</option>
+                </select>
             </div>
 
 
@@ -27,14 +29,14 @@ class SortComponent extends Component {
 
     componentDidUpdate(prevProps, prevState) {
         if (this.state.sort_by !== prevState.sort_by) {
-                    
-        this.props.SortedArticles(this.state.sort_by)
-                }
+
+            this.props.SortedArticles(this.state.sort_by)
+        }
     }
-    
 
 
-    
+
+
 }
 
 

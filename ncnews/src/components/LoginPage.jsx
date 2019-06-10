@@ -10,7 +10,10 @@ class LoginPage extends Component {
     }
 
     render() {
-
+        const { err } = this.state;
+        if (err) {
+            return <Error err={err} />;
+        }
         return (
             <div id="Login">
                 {!this.props.currentUserLogin &&

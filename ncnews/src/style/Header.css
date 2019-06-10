@@ -4,4 +4,8 @@ text-align: center;
 
 }
 
+#date-element {
+    flex: 1;
+}
+
 
