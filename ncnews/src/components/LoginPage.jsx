@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../style/Login.css'
+import '../style/Login.css';
 import { Error } from './Error'
 // import Button from 'react-bootstrap/Button';
 
@@ -14,7 +14,7 @@ class LoginPage extends Component {
         return (
             <div id="Login">
                 {!this.props.currentUserLogin &&
-                    <form onSubmit={this.submitInput}>
+                    <form id="login-button" onSubmit={this.submitInput}>
                         <input type='text' onChange={this.updateUserInput} />
                         <button><i><b>Login</b></i></button>
 

@@ -74,7 +74,7 @@ class ArticlesList extends Component {
         const maxPages = Math.ceil(this.state.totalcount / 10);
    
         return (
-            <div>
+            <div class="main-column">
       
                 <Router>
                 <TopicsList path="/topics/*" />

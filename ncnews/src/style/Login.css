@@ -1,3 +1,21 @@
-.Login {
+#login-button {
     transform-box: right;
 }
+
+#Login {
+    transform-box: right;
+}
+
+.form-row {
+    padding: 10px 0;
+    display: flex;
+}
+
+.form-row input{
+    flex: 0.5;
+}
+
+.form-row label {
+    padding-right: 10px
+}
+

@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
 import { postUser } from '../api';
+import '../style/Login.css'
 
 import Error from '../components/Error'
 
 
 export default class SignupComponent extends Component {
-  state = { 
-      username: null, 
-      name: null, 
-      avatar_url: null,
-    err: null };
+  state = {
+    username: null,
+    name: null,
+    avatar_url: null,
+    err: null
+  };
 
   render() {
     const { err } = this.state;
@@ -21,8 +23,8 @@ export default class SignupComponent extends Component {
         <h1>Sign Up</h1>
         <form onSubmit={this.handleSubmit}>
           <label>
-            <div>
-            
+            <div class="form-row">
+
               <input
                 required={true}
                 onChange={this.updateUsernameInput}
@@ -32,8 +34,7 @@ export default class SignupComponent extends Component {
             </div>
           </label>
           <label>
-
-            <div >
+            <div class="form-row">
               <input
                 required={true}
                 onChange={this.updateAvatar_url}
@@ -43,7 +44,7 @@ export default class SignupComponent extends Component {
             </div>
           </label>
           <label>
-          <div>
+            <div class="form-row">
               <input
                 required={true}
                 onChange={this.updateNameInput}
@@ -64,7 +65,7 @@ export default class SignupComponent extends Component {
     const newUser = { username, name, avatar_url };
     postUser(newUser)
       .then(user => {
-          console.log(user);
+        console.log(user);
         if (user) {
           this.props.updateAppUser(user);
         }

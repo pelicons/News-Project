@@ -26,3 +26,12 @@ a {
   .round {
     border-radius: 50%;
   }
+
+  .main-column {
+    max-width: 1200px;
+    margin: 20px auto 0 auto;
+    line-height: 1.65;
+    padding: 20px 30px;
+    /* display: flex; */
+  }
+
