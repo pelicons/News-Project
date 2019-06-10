@@ -23,7 +23,7 @@ class ArticlesList extends Component {
     componentDidMount() {
 
         getTopics()
-        .then(topics => {
+        .then((topics) => {
            
           this.setState({ topicsArray: topics });
         })
@@ -121,7 +121,7 @@ class ArticlesList extends Component {
                                     <br></br>
                                     <li>{article.votes} Votes</li>
                                     <li>{article.author}</li>
-                                    <li>{article.created_at}</li>
+                                    <li>created at: {article.created_at.split('').slice(0, 10).join('')}</li>
 
 
                                 </ul>
@@ -172,7 +172,7 @@ class ArticlesList extends Component {
           title: titleInput,
           body: bodyInput,
           topic: topicInput,
-          author: this.props.currentUserLogin
+          author: this.props.name
         };
         postArticle(newArticle)
           .then((article) => {

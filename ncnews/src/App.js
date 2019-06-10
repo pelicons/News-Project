@@ -15,7 +15,7 @@ class App extends Component {
   state = {
     currentUserLogin: null,
     err: null,
-    avater_url: '',
+    avatar_url: '',
     name: ''
   };
 

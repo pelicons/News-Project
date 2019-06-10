@@ -30,22 +30,22 @@ class CommentCard extends Component {
 
                     </div>
                 } <div>
-                        <button class="arrow" disabled={this.state.votes === 1}
+                    <button class="arrow" disabled={this.state.votes === 1}
 
-                            onClick={() => { this.HandleVote(1) }}>UP<br></br><b>{+1}</b></button>
+                        onClick={() => { this.HandleVote(1) }}>UP<br></br><b>{+1}</b></button>
 
-                        <button class="voteStyle" disabled={this.state.votes === -1}
-                            onClick={() => { this.HandleVote(-1) }}>DOWN<br></br><b>{-1}</b></button>
+                    <button class="voteStyle" disabled={this.state.votes === -1}
+                        onClick={() => { this.HandleVote(-1) }}>DOWN<br></br><b>{-1}</b></button>
 
-                    </div>
+                </div>
 
 
-                }
+
 
 
                 <li>{this.props.comment.body} </li>
                 <li>{this.props.comment.comment_id} comment id</li>
-                <li>{this.props.comment.created_at} created at</li>
+                <li>created at: {this.props.comment.created_at.split('').slice(0, 10).join('')}</li>
                 <li>{this.props.comment.votes + this.state.votes} votes</li>
                 <h2></h2>
 

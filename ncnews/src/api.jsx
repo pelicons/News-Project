@@ -146,3 +146,14 @@ export const postNewTopic = newTopic => {
         return newTopic;
       });
   };
+
+  export const getArticlesByUser = username => {
+    return axios
+      .get(`${url}/articles?author=${username}`)
+      .then((data) => {
+          
+        return data;
+      });
+  };
+
+
