@@ -31,6 +31,12 @@ const Header = (props) => {
 
         </div>
       )}
+      {props.currentUserLogin && (
+        <div>
+          <Link to="/user"><b><h4>User</h4></b></Link>
+        </div>
+      )}
+
     </div>
 
 

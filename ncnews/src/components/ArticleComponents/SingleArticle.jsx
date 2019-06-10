@@ -18,7 +18,7 @@ class SingleArticle extends Component {
 
         return (
 
-            <div>
+            <div id="single-article">
                 Title:{this.state.individualArticle.title}
                 <br></br>
                 {/* <button disabled={voteChange === 1} onClick={() => this.handleVote(1)}></button> */}
@@ -45,10 +45,12 @@ class SingleArticle extends Component {
                 <br></br>
 
                 <div>
-
-
                 </div>
                 <CommentsBodies id={this.props.id} currentUserLogin={this.props.currentUserLogin} />
+                <div>
+
+                </div>
+
                 <br></br>
             </div>
         );

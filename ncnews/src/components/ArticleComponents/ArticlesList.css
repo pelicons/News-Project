@@ -41,3 +41,12 @@ a {
     /* display: flex; */
   }
 
+  #single-article {
+    border-radius: 25px;
+    border: 9px solid lightblue;
+    padding: 50px; 
+    width: flex;
+    height: 100px; 
+    
+
+  }

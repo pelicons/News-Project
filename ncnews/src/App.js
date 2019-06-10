@@ -8,12 +8,15 @@ import { getUser } from './api'
 import TopicsList from './components/TopicsComponents/topicsList'
 import { Error } from './components/Error'
 import SignupComponent from './components/signupComponent';
+import UserPage from './components/UserPage';
 
 
 class App extends Component {
   state = {
     currentUserLogin: null,
-    err: null
+    err: null,
+    avater_url: '',
+    name: ''
   };
 
 
@@ -32,6 +35,7 @@ class App extends Component {
           <ArticlesList path="/*" currentUserLogin={this.state.currentUserLogin} />
           <TopicsList path="/topics/*" currentUserLogin={this.state.currentUserLogin} />
           <SignupComponent updateAppUser={this.updateAppUser} path="/sign-up" />
+          <UserPage userinfo={this.state}  path="/user" />
         </Router>
 
 
@@ -47,7 +51,12 @@ class App extends Component {
     } else {
       getUser(event).then((res) => {
         if (res) {
-          this.setState({ currentUserLogin: res.username })
+          this.setState({
+            currentUserLogin: res.username,
+            avatar_url: res.avatar_url,
+            name: res.name
+          })
+          console.log(res);
 
         }
 

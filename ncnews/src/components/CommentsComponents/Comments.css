@@ -1,27 +1,15 @@
 #commentDiv {
-    background-color:white;
-    border: 5px grey;
+    border-radius: 25px;
+    border: 9px dotted lightblue;  
+    padding: 50px; 
+    width: flex;
+    height: 100px; 
+    display: flex-align-items;
 }
 
-.comment{
-    border: 5px grey;
-}
-
-.singleComment {
-    border: 5px grey;
-    
-}
 
 #arrow {
     transform: rotate(-135deg);
     -webkit-transform: rotate(-135deg);
   }
 
-h2 {
-    
-    border-style: dashed;
-    border-width: 3px;
-    border-left-width: 10px;
-    border-right-width: 10px;
-    border-color: grey;
-}

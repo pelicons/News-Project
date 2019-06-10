@@ -15,13 +15,13 @@ class CommentsBodies extends Component {
     render() {
         console.log(this.state.commentsBody);
         return (
-            <div id="commentDiv">
+            <div >
                 <PostCommentComponent id={this.props.id}
                     currentUserLogin={this.props.currentUserLogin}
                     AddCommentState={this.AddCommentState} />
                 {this.state.commentsBody.map((comment) => {
-                 
-                    return (<div>
+
+                    return (<div id="commentDiv">
                         <CommentCard comment={comment} currentUserLogin={this.props.currentUserLogin} commentsFilter={this.commentsFilter} />
                     </div>
                     )
