@@ -9,11 +9,10 @@ const Header = (props) => {
   let date = new Date();
   date = date.toString();
   date = date.split('').splice(0, 15);
-  
-  // console.log(date);
+
   return (
     <div id="header">
-      <i id="date-element">{date}</i>
+      <i id="date-element"><b>{date}</b></i>
       <Link to="/"><b id="bold-title">NC News</b></Link>
       <br>
       </br>

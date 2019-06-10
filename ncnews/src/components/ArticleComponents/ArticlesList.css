@@ -6,47 +6,48 @@
     width: flex;
     height: 100px; 
     display: flex;
+    flex-direction: column;
   
 }
 
-a {
+ a {
     text-decoration: none;
     display: inline-block;
     padding: 8px 16px;
-  }
+  } 
   
  
   
-  /* .previous {
+  .previous {
     display: flex;
     background-color: #f1f1f1;
     color: black;
-  } */
+  } 
   
-  /* .next {
+  .next {
     display: flex;
     background-color:grey;
     color: white;
   }
-   */
+   
   .round {
     border-radius: 10%;
   }
 
-  .main-column {
+  /* .main-column {
     max-width: 1200px;
     margin: 20px auto 0 auto;
     line-height: 1.65;
     padding: 10px 250px;
-    /* display: flex; */
-  }
-
-  #single-article {
+    display: flex; 
+  } */
+  
+  /* #single-article {
     border-radius: 25px;
     border: 9px solid lightblue;
     padding: 50px; 
-    width: flex;
+    width: block;
     height: 100px; 
     
 
-  }
+  }   */

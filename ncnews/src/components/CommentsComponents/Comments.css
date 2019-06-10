@@ -1,10 +1,11 @@
-#commentDiv {
+#singleComment {
     border-radius: 25px;
     border: 9px dotted lightblue;  
     padding: 50px; 
-    width: flex;
+    width: block; 
     height: 100px; 
-    display: flex-align-items;
+    display: block; 
+    flex-direction: column;
 }
 
 

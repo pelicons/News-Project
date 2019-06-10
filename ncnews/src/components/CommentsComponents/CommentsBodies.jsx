@@ -24,8 +24,10 @@ class CommentsBodies extends Component {
                     return (<div id="commentDiv">
                         <CommentCard comment={comment} currentUserLogin={this.props.currentUserLogin} commentsFilter={this.commentsFilter} />
                     </div>
+                    
                     )
                 })}
+                <br></br>
             </div>
         );
     }
