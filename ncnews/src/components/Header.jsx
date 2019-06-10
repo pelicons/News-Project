@@ -25,7 +25,7 @@ const Header = (props) => {
           <Link to="/sign-up" id="navbar-element">
             <b> <h4>sign up...</h4></b>
           </Link>
-          <img src="../../public/nclogo.png" alt="nclogo"></img>
+          <img src="./logo.JPG" alt="nclogo"></img>
         </div>
       )}
     </div>
