@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import '../style/sort.css';
 
 
 
@@ -11,7 +12,7 @@ class SortComponent extends Component {
     render() { //{() => this.showTopicForm(this.state.button)}
         return (
             <div>
-                <select onChange={this.updateSortState}>
+                <select id="select-sort" onChange={this.updateSortState}>
                     <option value="created_at" >Created At</option>
                     <option value="votes" >Votes</option>
                     <option value="comment_count" >Comment Count</option>
