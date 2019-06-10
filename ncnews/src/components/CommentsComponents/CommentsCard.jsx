@@ -28,7 +28,8 @@ class CommentCard extends Component {
                         <button variant="primary" onClick={this.deleteClicked}>delete</button>
 
 
-
+                    </div>
+                } <div>
                         <button class="arrow" disabled={this.state.votes === 1}
 
                             onClick={() => { this.HandleVote(1) }}>UP<br></br><b>{+1}</b></button>
