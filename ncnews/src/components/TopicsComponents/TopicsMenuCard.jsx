@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import GoToPage from '../GoToPage';
 
 class TopicsMenuCard extends Component {
+    state = {
+        topics: this.props.topics
+    }
 
     render() {
         return (
