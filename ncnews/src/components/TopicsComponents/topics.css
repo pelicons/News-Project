@@ -1,0 +1,10 @@
+#topics-list {
+
+    border-radius: 2px;
+    border: 9px solid lightblue;
+    padding: 10px; 
+    width: flex;
+    height: 20px; 
+    display: flex;
+    flex-direction: column;
+}

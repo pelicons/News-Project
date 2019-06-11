@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './ArticlesList.css'
 
 export default class ArticlePostForm extends Component {
   state = {
@@ -8,19 +9,20 @@ export default class ArticlePostForm extends Component {
     err: null
   };
   render() {
-   
+
     return (
       <div >
-        <form
+        <form id="write-title"
           onSubmit={event => {
             event.preventDefault();
             this.props.handleSubmit(this.state);
           }}
-         
+
         >
           <label>
             <div >
               <input
+
                 required={true}
                 name="titleInput"
                 onChange={this.updateInputs}
@@ -31,8 +33,9 @@ export default class ArticlePostForm extends Component {
           </label>
           <br />
           <label>
-            <div>
+            <div id="write-body">
               <textarea
+
                 required={true}
                 name="bodyInput"
                 onChange={this.updateInputs}
@@ -49,10 +52,10 @@ export default class ArticlePostForm extends Component {
               onChange={this.updateInputs}>
 
               {this.props.topicsArray.data.topics.map((topic, i) => {
-                    return <option>{topic.slug}</option>
-                })}
-              
-                                    
+                return <option>{topic.slug}</option>
+              })}
+
+
             </select>
           </label>
           <br />
@@ -61,7 +64,7 @@ export default class ArticlePostForm extends Component {
       </div>
     );
   }
-  updateInputs= event => {
+  updateInputs = event => {
     this.setState({ [event.target.name]: event.target.value });
   };
 

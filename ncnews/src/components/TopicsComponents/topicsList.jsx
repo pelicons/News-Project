@@ -4,6 +4,8 @@ import { Link, Router } from "@reach/router";
 import ArticlesByTopic from '../ArticleComponents/ArticlesByTopic';
 import { Error } from '../Error'
 import PostTopicComponent from './postTopicsComponent'
+import './topics.css'
+import TopicsMenuCard from './TopicsMenuCard';
 
 class TopicsList extends Component {
     state = {
@@ -15,26 +17,21 @@ class TopicsList extends Component {
     render() {
         const { err } = this.state;
         if (err) {
-          return <Error err={err} />;
+            return <Error err={err} />;
         }
 
         return (
             <div>
-
+                <br></br>
+                <PostTopicComponent importedTopics={this.state.importedTopics} currentUserLogin={this.props.currentUserLogin} updateTopicsWhenPosted={this.updateTopicsWhenPosted} />
 
                 <Router>
                     <ArticlesByTopic topicsID={this.props} path="/:topic" />
                 </Router>
-                <ul>
-                    {this.state.importedTopics.map((topic) => {
-                        return <Link to={`/topics/${topic.slug}`}>
-                            <li key={topic.slug}>
-                                {topic.slug}</li>
-                        </Link>
-                    })}
+                <div>
+                    <TopicsMenuCard topics={this.state.importedTopics}/>
+                </div>
 
-                </ul>
-                <PostTopicComponent importedTopics={this.state.importedTopics} currentUserLogin={this.props.currentUserLogin} updateTopicsWhenPosted={this.updateTopicsWhenPosted} />
 
             </div>
         );
@@ -56,6 +53,8 @@ class TopicsList extends Component {
         this.setState({ importedTopics: newTopicsArray })
 
     }
+
+
 }
 
 
