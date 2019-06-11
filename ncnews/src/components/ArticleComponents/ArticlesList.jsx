@@ -154,6 +154,7 @@ class ArticlesList extends Component {
     changePage = dir => {
         this.setState(prevState => {
           return { page: prevState.page + dir };
+          //cant this just be this.state.page?
         });
       };
       showArticleForm = bool => {
@@ -176,11 +177,10 @@ class ArticlesList extends Component {
         };
         postArticle(newArticle)
           .then((article) => {
-              console.log(article, "ARTICLE LIST")
+          
             navigate(`/articles/${article.data.article.article_id}`);
             getArticles()
               .then((articles) => {
-                  console.log(articles)
                 this.setState({ articlesImported: articles.data.articles });
               })
             
