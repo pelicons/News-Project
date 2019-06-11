@@ -44,7 +44,17 @@ Delete their own comments.
 
 Access it at: https://github.com/tuskemx/News-Project/tree/master/ncnews
 
+<<<<<<< HEAD
 https://matthew-edwards-tuskemx.netlify.com/
+=======
+
+
+
+Access it at:
+ https://github.com/tuskemx/News-Project/tree/master/ncnews
+ 
+ https://matthew-edwards-tuskemx.netlify.com/
+>>>>>>> 066088719b647adde0838dfb54ce29cd5351e139
 
 Run the project locally by forking the repository and run in node:
 
@@ -54,4 +64,9 @@ The backend can be forked and locally hosted on heroku:
 
 https://github.com/tuskemx/NC-news-review
 
+<<<<<<< HEAD
 https://mynewsapp-matthew.herokuapp.com/api/articles
+=======
+https://mynewsapp-matthew.herokuapp.com/api/articles
+
+>>>>>>> 066088719b647adde0838dfb54ce29cd5351e139
