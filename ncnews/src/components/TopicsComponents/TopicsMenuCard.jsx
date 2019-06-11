@@ -11,10 +11,9 @@ class TopicsMenuCard extends Component {
             <div>
                 <form>
                     <label>Topics List</label>
-                    <select onChange={GoToPage(event.target.value)}>
+                    <select onChange={(event) => { GoToPage(event.target.value) }}>
                         <option selected> Please select one</option>
                         {this.props.topics.map((topic) => {
-                            console.log(topic.slug);
                             return <option value={`/topics/${topic.slug}`}>{topic.slug}</option>
                         })}
                     </select>

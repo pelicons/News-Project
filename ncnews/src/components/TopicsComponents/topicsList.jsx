@@ -29,7 +29,7 @@ class TopicsList extends Component {
                     <ArticlesByTopic topicsID={this.props} path="/:topic" />
                 </Router>
                 <div>
-                    <TopicsMenuCard topics={this.state.importedTopics}/>
+                    <TopicsMenuCard topics={this.state.importedTopics} />
                 </div>
 
 
@@ -42,8 +42,12 @@ class TopicsList extends Component {
         getTopics().then((res) => {
             console.log(res.data.topics, "hello")
             this.setState({ importedTopics: res.data.topics })
-        }).catch((err) => {
+        }).catch(({ err }) => {
+            // const errorstatus = response.status;
+            // const errormessage = response.data.msg;
+            // const err = { errorstatus, errormessage };
             this.setState({ err });
+
         })
     }
 
