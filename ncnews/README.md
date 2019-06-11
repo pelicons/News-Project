@@ -1,6 +1,6 @@
 NC News
 
-NC news is a a news feed aggregatr, where you can rate content, and discuss articles.
+NC news is a a news feed aggregate, where you can rate content, and discuss articles.
 
 NC News articles can be sorted into topics. 
 Each article has user ratings can be up or down voted using the API.
@@ -55,6 +55,8 @@ Delete their own comments.
 
 Access it at:
  https://github.com/tuskemx/News-Project/tree/master/ncnews
+ 
+ https://matthew-edwards-tuskemx.netlify.com/
 
 Run the project locally by forking the repository and run in node:
 
@@ -64,4 +66,6 @@ npm start
 The backend can be forked and locally hosted on heroku: 
 
 https://github.com/tuskemx/NC-news-review
+
+https://mynewsapp-matthew.herokuapp.com/api/articles
 
