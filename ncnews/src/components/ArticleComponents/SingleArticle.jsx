@@ -19,18 +19,22 @@ class SingleArticle extends Component {
         return (
 
             <div id="single-article">
-                Title:{this.state.individualArticle.title}
+                <b>Title:</b>{this.state.individualArticle.title}
+                <br></br>
+                <b>Author:</b>{this.state.individualArticle.author}
+                <br></br>
+                <b>Topic:</b>{this.state.individualArticle.topic}
+                <br></br>
                 <br></br>
                 {/* <button disabled={voteChange === 1} onClick={() => this.handleVote(1)}></button> */}
-                Body: {this.state.individualArticle.body}
+                <b>Body: </b>{this.state.individualArticle.body}
                 <br></br>
-                Author:{this.state.individualArticle.author}
                 <br></br>
-                Created_at:{this.state.individualArticle.created_at}
+
+                <b>Created_at:</b>{this.state.individualArticle.created_at}
                 <br></br>
-                Topic:{this.state.individualArticle.topic}
-                <br></br>
-                Votes:{this.state.individualArticle.votes}
+
+                <b>Votes:</b>{this.state.individualArticle.votes}
                 <br></br>
 
 
