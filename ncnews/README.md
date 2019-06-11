@@ -1,12 +1,8 @@
 NC News
 
-NC news is a a news feed aggregatr, where you can rate content, and discuss articles.
+NC news is a a news feed aggregate, where you can rate content, and discuss articles.
 
-NC News articles can be sorted into topics. 
-Each article has user ratings can be up or down voted using the API.
-Users can also add comments about an article. 
-Comments can  be up or down voted. 
-A user can add comments and remove any comments which are added to their articles (when logged in);
+NC News articles can be sorted into topics. Each article has user ratings can be up or down voted using the API. Users can also add comments about an article. Comments can be up or down voted. A user can add comments and remove any comments which are added to their articles (when logged in);
 
 Users can:
 
@@ -20,8 +16,6 @@ View an individual article.
 
 View an individual article's comments.
 
-
-
 Sort articles by:
 
 date created
@@ -31,7 +25,6 @@ comment_count
 votes
 
 Login to the site
-
 
 Logged in users can:
 
@@ -49,19 +42,16 @@ Post an article.
 
 Delete their own comments.
 
+Access it at: https://github.com/tuskemx/News-Project/tree/master/ncnews
 
-
-
-
-Access it at:
- https://github.com/tuskemx/News-Project/tree/master/ncnews
+https://matthew-edwards-tuskemx.netlify.com/
 
 Run the project locally by forking the repository and run in node:
 
-npm install
-npm start
+npm install npm start
 
-The backend can be forked and locally hosted on heroku: 
+The backend can be forked and locally hosted on heroku:
 
 https://github.com/tuskemx/NC-news-review
 
+https://mynewsapp-matthew.herokuapp.com/api/articles

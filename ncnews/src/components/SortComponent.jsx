@@ -9,7 +9,7 @@ class SortComponent extends Component {
     }
 
 
-    render() { //{() => this.showTopicForm(this.state.button)}
+    render() { 
         return (
             <div>
                 <select id="select-sort" onChange={this.updateSortState}>

@@ -98,7 +98,7 @@ class PostTopicsComponent extends Component {
     const { slug, description } = this.state;
     const newTopic = { slug, description };
     postNewTopic(newTopic)
-      .then(newTopic => {
+      .then((newTopic) => {
         console.log(newTopic);
         this.setState({
           topics: [...this.state.topics, newTopic]

@@ -12,6 +12,7 @@ class TopicsMenuCard extends Component {
                 <form>
                     <label>Topics List</label>
                     <select onChange={(event) => { GoToPage(event.target.value) }}>
+                        
                         <option selected> Please select one</option>
                         {this.props.topics.map((topic) => {
                             return <option value={`/topics/${topic.slug}`}>{topic.slug}</option>

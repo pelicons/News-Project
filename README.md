@@ -26,12 +26,7 @@ votes
 
 Login to the site
 
-
-
-
 Logged in users can:
-
-View their user page.
 
 Logout of the site
 
@@ -49,6 +44,8 @@ Delete their own comments.
 
 Access it at: https://github.com/tuskemx/News-Project/tree/master/ncnews
 
+https://matthew-edwards-tuskemx.netlify.com/
+
 Run the project locally by forking the repository and run in node:
 
 npm install npm start
@@ -57,3 +54,4 @@ The backend can be forked and locally hosted on heroku:
 
 https://github.com/tuskemx/NC-news-review
 
+https://mynewsapp-matthew.herokuapp.com/api/articles
