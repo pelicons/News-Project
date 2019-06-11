@@ -35,7 +35,7 @@ class App extends Component {
           <ArticlesList path="/*" currentUserLogin={this.state.currentUserLogin} />
           <TopicsList path="/topics/*" currentUserLogin={this.state.currentUserLogin} />
           <SignupComponent updateAppUser={this.updateAppUser} path="/sign-up" />
-          <UserPage userinfo={this.state}  path="/user" />
+          <UserPage userinfo={this.state} path="/user" />
         </Router>
 
 
@@ -66,7 +66,11 @@ class App extends Component {
     }
   }
   updateAppUser = (user) => {
-    this.setState({ currentUserLogin: user });
+    this.setState({
+      currentUserLogin: user.username,
+      avatar_url: user.avatar_url,
+      name: user.name
+    });
     localStorage.setItem('user', JSON.stringify(user));
     navigate(`/`);
   };

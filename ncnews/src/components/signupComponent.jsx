@@ -67,10 +67,9 @@ export default class SignupComponent extends Component {
     const { username, avatar_url, name } = this.state;
     const newUser = { username, name, avatar_url };
     postUser(newUser)
-      .then(user => {
-        console.log(user);
+      .then((user) => {
         if (user) {
-          this.props.updateAppUser(user);
+          this.props.updateAppUser(user.data.postedUser);
         }
       })
       .catch(({ response }) => {

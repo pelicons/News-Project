@@ -37,32 +37,40 @@ class UserPage extends Component {
         );
     }
 
-    componentDidMount() {
-        
-        
-        getArticlesByUser(this.props.userinfo.currentUserLogin).then((res) => {
+    //     componentDidMount() {
 
-            this.setState({
 
-                articlesByUser: res.data.articles,
-                currentUserLogin: res.data.username
-            })
-        
-        })
-    
-    }
-}
+    //         getArticlesByUser(this.props.userinfo.currentUserLogin).then((res) => {
 
-     
-    //  componentDidUpdate(prevProps, prevState) {
+    //             this.setState({
 
-    //      if (this.state.articlesByUser.length !== prevState.articlesByUser.length) {
-    //          getArticlesByUser(this.props.userinfo.currentUserLogin).then((res) => {
-    //              console.log(res, "updateres");
-    //              this.setState({ articlesByUser: res.data.articles })
-    //          })
-    //      }
+    //                 articlesByUser: res.data.articles,
+    //                 currentUserLogin: res.data.username
+    //             })
+
+    //         })
+
     //     }
     // }
 
-export default UserPage;
+
+    componentDidUpdate(prevProps, prevState) {
+
+        if (this.state.articlesByUser.length !== prevState.articlesByUser.length) {
+            getArticlesByUser(this.props.userinfo.currentUserLogin).then((res) => {
+
+                this.setState({
+
+                    articlesByUser: res.data.articles,
+                    currentUserLogin: res.data.username
+                })
+                //  getArticlesByUser(this.props.userinfo.currentUserLogin).then((res) => {
+                //      console.log(res, "updateres");
+                //      this.setState({ articlesByUser: res.data.articles })
+            })
+        }
+    }
+}
+        // }
+
+        export default UserPage;
