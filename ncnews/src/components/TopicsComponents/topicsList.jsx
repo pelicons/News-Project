@@ -42,9 +42,9 @@ class TopicsList extends Component {
         getTopics().then((res) => {
             console.log(res.data.topics, "hello")
             this.setState({ importedTopics: res.data.topics })
-        }).catch(({ err }) => {
-            const errorstatus = err.status;
-            const errormessage = err.data.msg;
+        }).catch(({ res }) => {
+            const errorstatus = res.status;
+            const errormessage = res.data.msg;
             const err = { errorstatus, errormessage };
             this.setState({ err });
 
