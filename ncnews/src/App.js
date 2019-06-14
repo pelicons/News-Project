@@ -65,7 +65,7 @@ class App extends Component {
       })
     }
   }
-  updateAppUser = (user) => {
+  updateAppUser = (user) => {  // { user }
     this.setState({
       currentUserLogin: user.username,
       avatar_url: user.avatar_url,
