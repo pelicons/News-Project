@@ -43,8 +43,8 @@ class SingleArticle extends Component {
 
                 {this.props.currentUserLogin &&
                     <div>
-                        <button disabled={individualArticle.votes === 1} onClick={() => { this.HandleVote(1) }}>UP<br></br><b>{individualArticle.votes + 1}</b></button>
-                        <button disabled={individualArticle.votes === -1} onClick={() => { this.HandleVote(-1) }}>DOWN<br></br><b>{individualArticle.votes - 1}</b></button>
+                        <button disabled={this.state.votes === 1} onClick={() => { this.HandleVote(1) }}>UP<br></br><b>{individualArticle.votes + 1}</b></button>
+                        <button disabled={this.state.votes === -1} onClick={() => { this.HandleVote(-1) }}>DOWN<br></br><b>{individualArticle.votes - 1}</b></button>
                     </div>
                 }
                 <br></br>
