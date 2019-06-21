@@ -2,10 +2,12 @@
   
     border-radius: 25px;
     border: 9px solid lightblue;
-    padding: 50px; 
-    width: flex;
+    padding: 30px; 
+    padding-left: 800px;
+    padding-right: 800px;
+    width: 250px;
     height: 100px; 
-    display: flex;
+    
     flex-direction: column;
   
 }
@@ -22,12 +24,14 @@
     display: flex;
     background-color: #f1f1f1;
     color: black;
+    padding-left: 1000px;
   } 
   
   .next {
     display: flex;
     background-color:grey;
     color: white;
+    padding-left: 1050px;
   }
    
   .round {
