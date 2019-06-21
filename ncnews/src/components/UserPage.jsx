@@ -9,15 +9,12 @@ class UserPage extends Component {
 
     }
     render() {
-        console.log(this.props.userinfo);
-        console.log(this.state.articlesByUser);
         return (
             <div>
                 <b>{this.props.userinfo.currentUserLogin}</b>
                 <br></br>
 
                 <img src={this.props.userinfo.avatar_url} width="50" height="50" alt="avatar"></img>
-                {console.log(this.props.userinfo.avatar_url)}
                 <br></br>
                 <b>{this.props.userinfo.name}</b>
                 <br></br>

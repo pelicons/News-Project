@@ -7,8 +7,7 @@ import logo from '../components/logo.png';
 
 const Header = (props) => {
   let date = new Date();
-  date = date.toString();
-  date = date.split('').splice(0, 15);
+  date = date.toString().split('').splice(0, 15);
 
   return (
     <div id="header">

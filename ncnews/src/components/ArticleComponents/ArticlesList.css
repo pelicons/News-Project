@@ -36,37 +36,17 @@
 
 
 
-  #write-title{
-   min-height: 300px;
-      width:300px;
-      font-size: 300pt;
-      display: flex;
+  #post-form{
+  padding-left: 800px; 
+  
+    
   
   }
 
   #write-body{
-      min-height: 300px;
-      width:300px;
-      font-size:300pt;
+      min-height: 200px;
+      width: 600px;
       display: flex;
+      
   }
 
-  
-
-  /* .main-column {
-    max-width: 1200px;
-    margin: 20px auto 0 auto;
-    line-height: 1.65;
-    padding: 10px 250px;
-    display: flex; 
-  } */
-  
-  /* #single-article {
-    border-radius: 25px;
-    border: 9px solid lightblue;
-    padding: 50px; 
-    width: block;
-    height: 100px; 
-    
-
-  }   */

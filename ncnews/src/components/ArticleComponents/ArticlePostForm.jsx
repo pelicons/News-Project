@@ -12,7 +12,7 @@ export default class ArticlePostForm extends Component {
 
     return (
       <div >
-        <form id="write-title"
+        <form id="post-form"
           onSubmit={event => {
             event.preventDefault();
             this.props.handleSubmit(this.state);
