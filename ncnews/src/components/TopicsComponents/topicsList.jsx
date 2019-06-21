@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { getTopics } from '../../api';
-import { Link, Router } from "@reach/router";
+import { Router } from "@reach/router";
 import ArticlesByTopic from '../ArticleComponents/ArticlesByTopic';
 import { Error } from '../Error'
 import PostTopicComponent from './postTopicsComponent'

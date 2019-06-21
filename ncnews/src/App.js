@@ -27,13 +27,12 @@ class App extends Component {
     return (
       <div>
 
-        <Header currentUserLogin=
-          {this.state.currentUserLogin} />
-        <LoginPage changeLogin={this.changeLogin} currentUserLogin={this.state.currentUserLogin} changeLogin={this.changeLogin} />
+        <Header currentUserLogin={currentUserLogin} />
+        <LoginPage currentUserLogin={currentUserLogin} changeLogin={this.changeLogin} />
         <Router>
           <Error default />
-          <ArticlesList path="/*" currentUserLogin={this.state.currentUserLogin} />
-          <TopicsList path="/topics/*" currentUserLogin={this.state.currentUserLogin} />
+          <ArticlesList path="/*" currentUserLogin={currentUserLogin} />
+          <TopicsList path="/topics/*" currentUserLogin={currentUserLogin} />
           <SignupComponent updateAppUser={this.updateAppUser} path="/sign-up" />
           <UserPage userinfo={this.state} path="/user" />
         </Router>
