@@ -85,7 +85,6 @@ class ArticlesList extends Component {
                 </Router>
                 <SortComponent SortedArticles={this.SortedArticles} />
                 <br></br>
-                <Link to="/topics"><i>List of Topics</i></Link>
                 <div>
 
         {this.props.currentUserLogin && (
