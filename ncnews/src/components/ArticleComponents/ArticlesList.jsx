@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link, Router, navigate  } from "@reach/router";
 import SingleArticle from './SingleArticle';
 import SortComponent from '../SortComponent';
-import { getSortedArticles,  getArticles, postArticle, getTopics } from '../../api';
+import { getSortedArticles,  getArticles, postArticle, getTopics, deleteArticle } from '../../api';
 import './ArticlesList.css';
 import ArticlePostForm from './ArticlePostForm';
 import TopicsList from '../TopicsComponents/topicsList'
@@ -85,6 +85,7 @@ class ArticlesList extends Component {
                 </Router>
                 <SortComponent SortedArticles={this.SortedArticles} />
                 <br></br>
+                <button onClick={this.deleteReactArticle}>BUTTON DELETE TEST</button>
                 <div>
 
         {this.props.currentUserLogin && (
@@ -142,6 +143,12 @@ class ArticlesList extends Component {
         
             </div >
         );
+    }
+
+    deleteReactArticle = (articleID) => {
+      deleteArticle(31).then((res) => {
+        console.log(res);
+      })
     }
 
     SortedArticles = (input) => {

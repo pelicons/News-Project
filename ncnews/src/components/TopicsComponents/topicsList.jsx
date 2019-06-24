@@ -18,7 +18,8 @@ class TopicsList extends Component {
         const { err } = this.state;
         if (err) {
             return <Error err={err} />;
-        }
+        } 
+        console.log('%c THIS IS AN ARROW! ', 'background: #222; color: #bada55');
 
         return (
             <div>

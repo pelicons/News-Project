@@ -140,9 +140,6 @@ export const postNewTopic = newTopic => {
       .post(`${url}/topics`, newTopic)
     
       .then((newTopic) => {
-          console.log(newTopic)
-          console.log(newTopic)
-          console.log(newTopic)
         return newTopic;
       });
   };
@@ -155,5 +152,12 @@ export const postNewTopic = newTopic => {
         return data;
       });
   };
+
+  export const deleteArticle = (articleID) => {
+    return axios.delete(`${url}/articles/33`).then((res) => {
+      console.log(res);
+        return res
+    })
+}
 
 
