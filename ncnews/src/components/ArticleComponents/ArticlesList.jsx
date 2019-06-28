@@ -160,7 +160,7 @@ class ArticlesList extends Component {
     changePage = dir => {
         this.setState(prevState => {
           return { page: prevState.page + dir };
-          //cant this just be this.state.page?
+          
         });
       };
       showArticleForm = bool => {

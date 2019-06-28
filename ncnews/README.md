@@ -4,7 +4,7 @@ NC news is a a news feed aggregate, where you can rate content, and discuss arti
 
 NC News articles can be sorted into topics. Each article has user ratings can be up or down voted using the API. Users can also add comments about an article. Comments can be up or down voted. A user can add comments and remove any comments which are added to their articles (when logged in);
 
-<h3>Users can:<h3>
+<h3>Users can:</h3>
 
 View a list of all articles.
 
@@ -24,7 +24,7 @@ comment_count
 
 votes
 
-<h3>Login to the site<h3>
+<h3>Login to the site</h3>
 
 Logged in users can:
 
