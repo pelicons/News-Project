@@ -11,7 +11,7 @@
     "react-bootstrap": "^1.0.0-beta.9",
     "react-dom": "^16.8.6",
     "react-dropdown-select": "^3.0.0",
-    "react-scripts": "0.9.5",
+    "react-scripts": "5.0.1",
     "tooltip.js": "^1.3.2"
   },
   "devDependencies": {},
